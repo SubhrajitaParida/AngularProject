@@ -1,0 +1,74 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    background-color:white;
+}
+.container-inside{
+  height: 98vh;
+  width: 98%;
+  display: flex;
+  /* margin-top: 30px; */
+   margin-left: 20px;
+}
+
+#image{
+    height: 40vh;
+    width: 50%;
+    /* background-color: blue; */
+    /* margin-right: 45px; */
+}
+img{
+    width: 90%;
+    height: 100vh;
+    margin-bottom: 100px;
+}
+#product-details{
+    height: 40vh;
+    width: 50%;
+}
+#name{
+    /* font-size: 40px; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 0;
+    width: calc(100% - 340px);
+    /* font-family: Lato; */
+}
+.div-price{
+    display: flex;
+    margin-bottom: 30px;
+}
+#price{
+    margin-top: 3px; 
+    font-size: 12px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    color: rgba(37, 35, 35, 0.5);
+    min-height: 42px;
+}
+#price-number{
+    color: #0b1219;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+#desc{
+    color: #0b1219;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+#desc-value{
+    margin-bottom: 40px;
+    font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+button  {
+    height: 50px;
+    width: 270px;
+}

@@ -1,0 +1,32 @@
+<div class="container">
+<form #frmRegister="ngForm" (submit)="InsertProduct(frmRegister)">
+  <div class="add">
+    Add Products
+  </div>
+  <div class="form-group">
+    <label for="name">Product Name:</label>
+    <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required>
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="number" class="form-control" id="price" [(ngModel)]="product.price" name="price" required>
+  </div>
+  <div class="form-group">
+    <label for="quantity">Quantity:</label>
+    <input type="number" class="form-control" id="quantity" [(ngModel)]="product.quantity" name="quantity" required>
+  </div>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description" required>
+  </div>
+  <div class="form-group">
+    <label for="categoryId">Category:</label>
+    <select class="form-control" id="categoryId" [(ngModel)]="product.category.categoryId" name="categoryId" required>
+      <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
+    </select>
+  </div>
+  <div class="buttons">
+  <button type="submit" class="btn btn-primary" routerLink="GetProduct">Save</button>
+</div>
+</form>
+</div>

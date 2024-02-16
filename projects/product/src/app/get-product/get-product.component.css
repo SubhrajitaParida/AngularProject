@@ -1,0 +1,26 @@
+.container-fluid{
+    margin-top: 30px;
+}
+/* 
+.add{
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+  } */
+  .table{
+    border: 2px solid black;
+    margin-left: 20px;
+    width: 90%;
+  }
+  .value{
+    margin-top: 30px;
+  }
+  #buttons{
+   padding-bottom: 40px;
+  }
+
+  .btn-delete{
+    text-decoration: none;
+    color: white;
+  
+  }

@@ -1,0 +1,39 @@
+
+.container{
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+form{
+  height: 78vh;
+  width: 40%;
+  border: 1.5px solid rgba(34, 142, 210, 0.797);
+  box-shadow: 5px 5px 5px;
+  border-radius: 15px;
+  padding-left: 73px;
+  padding-top: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.form-control{
+  height: 40px;
+  width: 80%;
+  border: 1px solid black;
+ margin-bottom: 10px;
+}  
+
+button{
+  height: 45px;
+  width: 100px;
+  margin-left: 80px;
+}
+.add{
+  font-size: 27px;
+  /* text-align: center; */
+  padding-left: 35px;
+}
+
+
+  
+  

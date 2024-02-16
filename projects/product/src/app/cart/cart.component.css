@@ -1,0 +1,336 @@
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+
+    height: 100vh;
+    width: 100vw;
+
+}
+
+body>section{
+    width: 80%;
+    height: 23vh;
+    padding: 0px 20px 0px 20px;
+    /* border: 2px solid black; */
+}
+
+#header{
+    font-size:50px;
+    font-weight: bolder;
+    /* text-align: center; */
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    transition: 2s;
+
+}
+
+.innersec{
+    /* border: 2px solid black; */
+    margin: 20px;
+}
+
+.innersec>div{   
+    width: 122%;
+     display: flex;
+     height: 10vh;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgb(186, 196, 198);
+    border-radius: 7px;
+    
+}
+
+.innersec>div>div{
+    border-right: 1px solid rgba(0, 0, 0, 0.336);
+    padding-right: 30px;
+}
+.innersec>div>div:last-child{
+    border-right: none;
+    padding-right: 0px;
+}
+
+.innersec>div h1{
+    font-size: 18px;
+    text-align: center;
+}
+#values{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 2px solid red; */
+    height: 13vh;
+    width: 113%;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+}
+#values>div{
+    /* border: 2px solid black; */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+#Quantity{
+    
+    /* margin-right: 10px; */
+}
+#price{
+        margin-left:20px;
+}
+
+#remove button ,#Buy button{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(244, 12, 12);
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-style: none;
+    transition: 1s;
+
+}
+
+#Buy button{
+    background-color: blue;
+  
+}
+#Buy{
+
+margin-right: 30px;
+}
+
+#remove button:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+#header:hover{
+    text-decoration: underline;
+    transition: 2s;
+}
+select {
+    /* Set width and height */
+    width: 80px;
+    height: 40px;
+    
+    /* Set font properties */
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.868);
+    color: white;
+    /* Set border properties */
+    border: 1px solid #000000;
+    border-radius: 8px;
+    
+    /* Set padding */
+    padding: 5px;
+    
+    /* Set background color */
+    
+    
+    /* Set cursor */
+    cursor: pointer;
+  }
+ 
+  
+  /* Style the options in the dropdown */
+  select option {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+background-color: white;
+    color: #000000;
+  }
+
+.empty{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-size: 20px;
+}
+.empty h1{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+.empty>div button{
+    
+    width: 400px;
+    height: 60px;
+    background-image: linear-gradient(45deg, red, rgb(119, 8, 8));
+    color: white;
+    font-weight: bold;
+    border-style: none;
+    border-top-right-radius:30px ;
+    border-bottom-left-radius: 30px;
+    margin-left: 50px;
+}
+
+.empty>div div{ 
+    width: 220px;
+    height: 220px;
+    margin-left: 130px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px black;
+    background-image: url("./images/WhatsApp\ Image\ 2024-02-15\ at\ 8.21.38\ AM.jpeg");
+}
+nav{
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    background-image: linear-gradient(45deg,rgb(42, 100, 147),aqua);
+    /* background-color: rgba(4, 42, 39, 0.196); */
+    /* background-image: linear-gradient(45deg, crimson, gold); */
+    /* background-color: green; */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.116);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 200px;
+    height: 70px;
+    border-radius: 20px;
+    margin-left: 10px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.734);
+    transition: 1s;
+}
+
+nav img:hover{
+    transform:scale(1.1);
+    transition: 1s;
+}
+nav button{
+    width: 80px;
+    height: 50px;
+    border-style: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0);
+    margin: 5px;
+    margin-right: 30px;
+    border-radius: 20px;
+    transition: 1.5s;
+}
+
+nav button:hover{
+    background-color: white;
+    /* border: 2px solid black; */
+    transition: 1.5s;
+}
+
+nav i{
+    font-size: 30px;
+}
+nav>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart>i{
+    font-size: 50px;
+    margin-left: 50px;
+    margin-right: -100px;
+    color: rgb(1, 5, 6);
+}
+
+#quan{
+    color:black;
+    background-color: white;
+    position: relative;
+    bottom: 23px;
+    right: -98px;
+    width: 25px;
+    height: 25px;
+    border: 3px solid black;
+    border-radius: 50%;
+    border-color:rgb(255, 0, 68);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 15px;
+    border-style: ridge;
+
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Bill{
+    margin-top: 100px;
+    width: 38%;
+    padding: 15px;
+    background-color: rgba(235, 233, 233, 0.52);
+
+}
+
+.Bill h1{
+    font-size: 20px;
+}
+
+.Bill>div h1{
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 40px;
+}
+
+.Bill>div{
+    height: 110px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Bill>div+div{
+    width: 98%;
+    height: 0px;
+    border: 1px solid  rgba(22, 7, 7, 0.306);
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+#items{  
+  
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bolder;
+    border-style: none;
+    border-radius: 0px;
+}
+
+#btn{
+    width: 250px;
+    height: 40px;
+    background-color: rgb(128, 0, 128);
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border-style: none;
+    margin:20px auto ;
+}

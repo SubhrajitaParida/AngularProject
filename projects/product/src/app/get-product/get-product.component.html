@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th >Name</th>
+          <th >Price</th>
+          <th>Quantity</th>
+          <th>Buttons</th>
+        </tr>
+      </thead>
+       <tbody>
+
+        <tr *ngFor="let prod of products">
+         <td class="value">{{prod.productId}}</td>
+         <td class="value">{{prod.name}}</td>
+         <td class="value">{{prod.price}}</td>
+         <td class="value">{{prod.quantity}}</td>
+          <td id="buttons">
+            <button class="btn btn-primary" type="button" [routerLink]="['/admin/edit-product', prod.productId]">edit</button>
+
+            <button class="btn btn-danger m-4" type="submit" (click)="deleteProduct(prod.productId)">
+              <a class="btn-delete">
+                delete
+              </a>
+              </button>
+        </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+

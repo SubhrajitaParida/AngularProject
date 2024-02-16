@@ -1,0 +1,52 @@
+<!-- <div class="right-inside">
+
+  <div class="products">
+    <div *ngFor="let product of products" class="products-container">
+      <a routerLink="details/{{product.productId}}">
+        <div id="name">
+          {{product.name}}
+        </div>
+        <div id="price">
+          <span>MRP:</span>
+          <span>{{product.price}}</span>
+        </div>
+      </a>
+      <div id="buttons">
+        <button class="btn btn-primary " type="submit">Add to Cart</button>
+      </div>
+    </div>
+    <div class="details">
+      <section>
+        <router-outlet></router-outlet>
+      </section>
+    </div>
+  </div>
+ 
+
+
+</div> -->
+
+
+<div class="right-inside">
+  <div class="products">
+    <div *ngFor="let product of products" class="products-container">
+      <a [routerLink]="['/medicine/details', product.productId]">
+          <img src="/assets/dolo-65Single.jpg" alt="">
+        <!-- </div> -->
+        <div id="name">{{ product.name }}</div>
+        <div id="div-price">
+          <div id="price">MRP:</div>
+          <div id="real-price" class="bi bi-currency-rupee">{{ product.price }}</div>
+        </div>
+      </a>
+      <div id="buttons">
+        <button class="btn btn-primary" type="submit" (click)="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
+    <div class="details">
+      <section>
+        <router-outlet></router-outlet>
+      </section>
+    </div>
+  </div>
+</div>

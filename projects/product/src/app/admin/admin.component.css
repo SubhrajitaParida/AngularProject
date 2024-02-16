@@ -1,0 +1,148 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+
+}
+.nav{
+    height: 12vh;
+    width: 100vw;
+
+    
+}
+.nav-content{
+    height: inherit;
+    width: 100%;
+    position: fixed;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: rgba(33, 143, 211, 0.671);
+}
+.product-logo{
+    font-size: 30px;
+    width: 20%;
+    font-weight: bold;
+    font-family: Arial,Verdana,"Times New Roman";
+    color: aliceblue;
+    width: 20%;
+    padding-left: 20px;
+}
+.product-top-nav{
+    text-align: center;
+    width: 80%;
+    font-size: 15px;
+    font-weight: bold;
+   margin-left: 80px;
+}
+.product-top-nav>a{
+    text-decoration: none;
+    padding-left:50px;
+    color:white ;
+    padding-top:30px 10px;
+}
+.body{
+    width: 100%;
+    height: 80vh;
+    
+} */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.main{
+    
+    width: 100%;
+   
+}
+.nav{
+   width: 100%;
+   background-image: linear-gradient(rgba(34, 142, 210, 0.797) ,rgb(43, 191, 191) );
+   
+   
+  position: fixed;
+}
+.product-header
+{
+ 
+    height: 14vh;
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.product-logo{
+    width: 20%;
+    letter-spacing: 1px;
+    color: aliceblue;
+   
+    display: flex;
+   
+}
+.logo-name{
+  
+    font-size: 30px;
+    position: absolute;
+    left: 110px;
+    top: 25px;
+
+}
+img{
+  width: 270px;
+  height: 102px;
+  padding-right: 100px;
+  padding-bottom: 20px;
+ 
+}
+
+
+.product-top-nav{
+    text-align: center;
+    width: 80%;
+    padding-top:20px;
+    padding-right: 10px;
+   
+    display: flex;
+   
+}
+
+
+
+.nav-content>a{
+    text-decoration: none;
+    padding-left:95px;
+    font-size: 15.7px;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+   
+}
+.nav-content{
+    margin-top: 10px;
+}
+.icons{
+    margin-right: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+

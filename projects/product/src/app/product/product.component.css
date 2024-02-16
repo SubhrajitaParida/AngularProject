@@ -1,0 +1,86 @@
+.right-inside {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    font-family: LatoSemiBold;
+}
+
+.products {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+}
+
+.products-container {
+    height: 360px;
+    width: 22%; /* Adjusted width to maintain the layout */
+    border: 1px solid grey;
+    box-shadow: 5px 5px 5px whitesmoke;
+    border-radius: 15px;
+    margin-left: 24px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures button stays at the bottom */
+    padding: 10px; /* Adjusted padding for content spacing */
+}
+.products-container>a{
+    text-decoration: none;
+
+}
+
+img {
+    height: 200px;
+    width: 100px;
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure it behaves like a block element */
+}
+
+#name {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 14px;
+    color: #151b39;
+    letter-spacing: 0;
+    display: block;
+    margin: 4px 0 5px;
+    text-align: left;
+    height: 42px;
+    /* margin-bottom: 10px;  */
+}
+#div-price{
+    display: flex;
+}
+
+#price {
+    /* font-size: 10px;
+    text-align: center; */
+    margin-top: 3px; 
+    font-size: 12px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    color: rgba(37, 35, 35, 0.5);
+    /* width: 20%; */
+    /* float: left;
+    display: block; */
+    min-height: 42px;
+}
+#real-price{
+    color: #0b1219;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Align the button to the bottom */
+}
+
+.btn {
+    width: 80%;
+}

@@ -1,0 +1,25 @@
+<!-- <head>
+  <app-navbar></app-navbar>
+</head> -->
+<div class="main">
+<div class="fluid">
+  <section  class="fluid-left">
+    <div id="left">
+      <div class="filter-2">
+        Categories
+      </div>
+      <div *ngFor="let c of categories2" class="all-category">
+        <a routerLink="categories/{{c.categoryName}}">{{c.categoryName}}</a>
+      </div>
+    </div>
+  </section>
+    <section class="fluid-right" >
+  <div id="right">
+    <router-outlet></router-outlet>
+  </div>
+</section>
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>
+</div>
