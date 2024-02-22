@@ -1,4 +1,103 @@
-*{
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.main{
+    width: 100%;
+   
+}
+.nav{
+   width: 100%;
+   background-image: linear-gradient(rgba(34, 142, 210, 0.797) ,rgb(43, 191, 191) );
+
+   
+  position: fixed;
+}
+.product-header
+{
+    height: 14vh;
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+}
+.product-logo{
+    width: 20%;
+    letter-spacing: 1px;
+    color: aliceblue;
+ 
+}
+
+img{
+  width: 85%;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+.product-top-nav{
+    text-align: center;
+    width: 80%;
+    padding-top:20px;
+    padding-right: 10px;
+   
+    display: flex;
+   
+}
+
+
+.nav-content>a{
+    text-decoration: none;
+    padding-left:10px;
+    font-size: 15.7px;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+.nav-content{
+    margin-top: 10px;
+}
+.icons{
+    margin-right: 4px;
+}
+
+#quan{
+    color:black;
+    background-color: white;
+    position: relative;
+    right: 8.9rem;
+    bottom: 1.2rem;
+    width: 25px;
+    height: 25px;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 15px;
+    border-style: ridge;
+}
+#cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+#cart>i{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}
+
+ */
+
+ *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -14,7 +113,11 @@
 .nav{
    width: 100%;
    background-image: linear-gradient(rgba(34, 142, 210, 0.797) ,rgb(43, 191, 191) );
+   background-image: linear-gradient(45deg,rgb(6, 255, 255),black );
+
+   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.567);
    /* background-color:rgba(27, 143, 215, 0.671); */
+   /* background-image: linear-gradient(rgb(20, 185, 163),black); */
    
   position: fixed;
 }
@@ -31,26 +134,16 @@
     width: 20%;
     letter-spacing: 1px;
     color: aliceblue;
-    /* padding-top: 27px; */
-    display: flex;
-   
+ 
 }
-.logo-name{
-    /* margin-right: 40px; */
-    font-size: 30px;
-    position: absolute;
-    left: 110px;
-    top: 25px;
 
-}
 img{
-  width: 270px;
-  height: 102px;
-  padding-right: 100px;
-  padding-bottom: 20px;
-  /* padding-right: 60px; */
-  /* margin-right: 20px; */
-}
+    width: 85%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+
 
 /* .product-header-nav{
     width: 80%;
@@ -60,11 +153,13 @@ img{
 .product-top-nav{
     text-align: center;
     width: 80%;
-    padding-top:20px;
-    padding-right: 10px;
+    /* padding-top:20px; */
+    /* padding-right: 10px; */
     /* font-size: 15px;
     font-weight: bold; */
     display: flex;
+    justify-content: space-between;
+    align-items: center;
    
 }
 /* .input{
@@ -74,7 +169,7 @@ width: ;
 
 .nav-content>a{
     text-decoration: none;
-    padding-left:40px;
+    /* padding-left:40px; */
     font-size: 15.7px;
     font-stretch: normal;
     font-style: normal;
@@ -84,17 +179,41 @@ width: ;
     font-weight: bold;
 }
 .nav-content{
-    margin-top: 10px;
+    width: 52%;
+    height: 50px;
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 .icons{
     margin-right: 4px;
 }
-
-
-
-
-
-
-
-
-
+#quan{
+    color:black;
+    background-color: white;
+    position: relative;
+    right: 4.9rem;
+    bottom: 1.3rem;
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 15px;
+    border-style: ridge;
+}
+#cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+#cart>i{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+}

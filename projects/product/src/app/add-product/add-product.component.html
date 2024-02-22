@@ -20,6 +20,10 @@
     <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description" required>
   </div>
   <div class="form-group">
+    <label for="description">Image</label>
+    <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description" required>
+  </div>
+  <div class="form-group">
     <label for="categoryId">Category:</label>
     <select class="form-control" id="categoryId" [(ngModel)]="product.category.categoryId" name="categoryId" required>
       <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>

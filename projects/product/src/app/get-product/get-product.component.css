@@ -8,19 +8,41 @@
     margin-right: 20px;
   } */
   .table{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin-left: 20px;
     width: 90%;
+    height: auto;
+    /* text-align: center; */
   }
-  .value{
-    margin-top: 30px;
+  tr>td{
+    /* display: block;
+    margin-top: 30px; */
+    text-align: center;
+    /* border: 1px solid; */
+    width: 100px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center;
+    align-items: center; */
   }
-  #buttons{
+  /* #buttons{
    padding-bottom: 40px;
-  }
+  } */
 
   .btn-delete{
     text-decoration: none;
     color: white;
   
   }
+  tr{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  th{
+    width: 100px;
+  }
+
+  

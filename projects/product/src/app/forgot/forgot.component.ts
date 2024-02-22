@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataSourceService } from '../data-source.service';
 import { error } from 'console';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { RandomCodeService } from '../RandomCodeService';
 import { PasswordUpdateRequest } from '../Model/PasswordUpdateRequest.model';
 
 @Component({
@@ -14,8 +16,16 @@ export class ForgotComponent {
 
   public passwordUpdate:PasswordUpdateRequest=new PasswordUpdateRequest("","");
 
-  constructor(private form:FormBuilder,private router:Router,private service:DataSourceService){}
+  constructor(private form:FormBuilder,private router:Router,private service:DataSourceService,
+    private snackBar:MatSnackBar,private random:RandomCodeService){}
 
+  private showSnackBar(message: string) {
+    const config = new MatSnackBarConfig();
+    config.panelClass = ['custom-snackbar']; // Add your custom class for styling
+    config.duration = 3000;
+    config.verticalPosition = 'top';
+    this.snackBar.open(message, 'Close', config);
+  }
 
   public forgotForm = this.form.group({
     email: this.form.control('', [Validators.required, Validators.email]),
@@ -25,9 +35,9 @@ export class ForgotComponent {
 
   updatePassword(){
     this.service.updatePassword(this.passwordUpdate).subscribe((data)=>{
-      alert("Password updated successfully");
+      this.showSnackBar("Password updated successfully");
     },(error)=>{
-      alert("Password not updated. Try again")
+      this.showSnackBar("Password not updated. Try again")
     }
     )
 
@@ -40,16 +50,17 @@ export class ForgotComponent {
       this.forgotForm.value.verificationCode!==null && this.forgotForm.value.verificationCode) {
         this.passwordUpdate.email=this.forgotForm.value.email;
         this.passwordUpdate.newPassword=this.forgotForm.value.password;
-        if(this.forgotForm.value.verificationCode==="ABCD"){
-          alert("Verified successfully.")
+        const code = this.random.getVerificationCode();
+        if(this.forgotForm.value.verificationCode==code){
+          // alert("Verified successfully.")
           this.updatePassword();
         }
         else{
-          alert("Verification code is incorrect. Please enter correct verification code")
+          this.showSnackBar("Verification code is incorrect. Please enter correct verification code")
         }
     } 
     else {
-      alert("Forgot details are invalid. Please enter valid credentials");
+      this.showSnackBar("Forgot details are invalid. Please enter valid credentials");
     }
   }
   

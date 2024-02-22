@@ -1,0 +1,22 @@
+<div class="main">
+  <div class="navBar">
+    <app-main-nav></app-main-nav>
+</div>
+
+<div class="container">
+    <div *ngIf="feedbacks && feedbacks.length > 0">
+        <div class="heading">
+          <p>
+            <b>Feedbacks</b>
+          </p>
+        </div>
+        <div *ngFor="let feedback of feedbacks" class="comments">
+          <p><b>Rating:</b> {{ feedback.ratings }}</p>
+          <p><b>Comment:</b> {{ feedback.feedback }}</p>
+        </div>
+      </div>
+      <div *ngIf="!feedbacks || feedbacks.length === 0">
+        <p>No feedbacks available</p>
+      </div>      
+</div>
+</div>

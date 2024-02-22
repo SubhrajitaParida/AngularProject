@@ -1,0 +1,51 @@
+<div class="main">
+    <div class="navBar">
+        <app-main-nav></app-main-nav>
+    </div>
+
+    <div class="background">
+        <div class="container">
+            <div class="heading">
+                <p>
+                    Address
+                </p>
+            </div>
+            <form [formGroup]="addressForm" (ngSubmit)="isEditMode ? updateAddress() : saveAddress()">
+                <label for="streetName"><b>Street Name</b></label>
+                <input type="text" formControlName="streetName" placeholder="Enter street name">
+                <div *ngIf="addressForm.get('streetName')?.invalid && addressForm.get('streetName')?.touched"
+                    class="text-danger">
+                    Street Name is required
+                </div>
+
+                <label for="city"><b>City</b></label>
+                <input type="text" formControlName="city" placeholder="Enter city">
+                <div *ngIf="addressForm.get('city')?.invalid && addressForm.get('city')?.touched" class="text-danger">
+                    City is required
+                </div>
+
+                <label for="state"><b>State</b></label>
+                <input type="text" formControlName="state" placeholder="Enter state">
+                <div *ngIf="addressForm.get('state')?.invalid && addressForm.get('state')?.touched" class="text-danger">
+                    State is required
+                </div>
+
+                <label for="pinCode"><b>PinCode</b></label>
+                <input type="text" formControlName="pinCode" placeholder="Enter pincode">
+                <div *ngIf="addressForm.get('pinCode')?.invalid && addressForm.get('pinCode')?.touched"
+                    class="text-danger">
+                    <ng-container *ngIf="addressForm.controls['pinCode'].errors?.['required']">
+                        Pincode is required
+                    </ng-container>
+                    <ng-container *ngIf="addressForm.controls['pinCode'].errors?.['pattern']">
+                        Pincode should contain exactly 6 digits
+                    </ng-container>
+                </div>
+
+                <button type="submit" [disabled]="addressForm.invalid">{{ isEditMode ? 'Save Address' : 'Add Address'
+                    }}</button>
+            </form>
+
+        </div>
+    </div>
+</div>

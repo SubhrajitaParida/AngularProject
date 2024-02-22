@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit{
 
   public categories:any[]=[];
   
-  product: Product = new Product(0, '', 0, 0, '',0, new CategoryEntity(0, ''));
+  product: Product = new Product(0, '', 0, 0, '',1,'', new CategoryEntity(0, ''));
 
   constructor(private route:ActivatedRoute, private productRepo: ProductRepo, private datasource:DataSource) {
     this.getCategories();

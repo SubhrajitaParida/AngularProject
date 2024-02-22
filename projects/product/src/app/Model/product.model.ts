@@ -9,6 +9,7 @@ export class Product{
         public  quantity:number,
         public  description:string,
         public quantityProduct:number,
+        public image:string,
         public  category:CategoryEntity
     ){}
 }

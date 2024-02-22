@@ -2,7 +2,7 @@
     <div class="container">
       <div class="container-inside">
         <div id="image">
-          <img src="/assets/paracetamole.jpg" alt="Image not found">
+          <img [src]="productDetails.image" alt="Image not found">
         </div>
         <div id="product-details">
           <dl>
@@ -13,7 +13,7 @@
           </div>
             <dt id="desc">Description:</dt>
             <dd id="desc-value">{{ productDetails.description }}</dd>
-            <dd><button class="btn btn-primary" type="submit" (click)="addToCart(productDetails)">Add to Cart</button></dd>
+            <dd><button class="btn btn-primary" type="submit" (click)="addToCart(productDetails)">Add To Cart</button></dd>
           </dl>
         </div>
       </div>

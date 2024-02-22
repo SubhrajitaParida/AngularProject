@@ -1,0 +1,75 @@
+<div class="main">
+  <div class="navBar">
+    <app-main-nav></app-main-nav>
+</div>
+<div class="payment-container">
+  <h2>Payment Details</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="processPayment()">
+    <label for="amount"><b>Amount</b></label>
+    <input type="text" id="amount" formControlName="amount" required readonly>
+
+    <label for="paymentMode"><b>Payment Mode</b></label>
+    <select id="paymentMode" formControlName="paymentMode" (change)="hideFields()">
+      <option value="">Select option</option>
+      <option value="creditCard">Credit Card</option>
+      <option value="debitCard">Debit Card</option>
+      <option value="upi">UPI</option>
+    </select>
+
+    <div
+      *ngIf="paymentForm.get('paymentMode')?.value === 'creditCard' || paymentForm.get('paymentMode')?.value === 'debitCard'">
+      <label for="cardNumber"><b>Card Number</b></label>
+      <input type="number" formControlName="cardNumber" >
+      <div *ngIf="paymentForm.controls['cardNumber']?.invalid && paymentForm.controls['cardNumber']?.touched" class="text-danger">
+        <ng-container *ngIf="paymentForm.controls['cardNumber']?.errors?.['required']">
+          CardNumber is required
+        </ng-container>
+        <!-- <ng-container *ngIf="paymentForm.controls['cardNumber']?.errors?.['maxlength']">
+          Please enter a maximum of 16 digits
+        </ng-container> -->
+      </div>
+
+      <label for="expiryDate"><b>Expiry Date</b></label>
+      <input type="text" formControlName="expiryDate" placeholder="MM/YYYY" (blur)="validateExpiryDate()">
+      <div *ngIf="paymentForm.controls['expiryDate']?.invalid && paymentForm.controls['expiryDate']?.touched" class="text-danger">
+        <ng-container *ngIf="paymentForm.controls['expiryDate'].errors?.['required']">
+          ExpiryDate is required
+        </ng-container>
+        <!-- <ng-container *ngIf="paymentForm.controls['expiryDate'].errors?.['pattern']">
+          Invalid ExpiryDate. Please enter in the format MM/YYYY
+        </ng-container> -->
+      </div>
+
+
+      <label for="cvv"><b>CVV</b></label>
+      <input type="number" formControlName="cvv">
+      <div *ngIf="paymentForm.controls['cvv']?.invalid && paymentForm.controls['cvv']?.touched" class="text-danger">
+        <ng-container *ngIf="paymentForm.controls['cvv'].errors?.['required']">
+          CVV is required
+        </ng-container>
+        <!-- <ng-container *ngIf="paymentForm.controls['cvv'].errors?.['maxlength']">
+          Please enter full CVV
+        </ng-container> -->
+      </div>
+
+      <div *ngIf="paymentForm.get('paymentMode')?.value === 'upi'">
+        <label for="upiId"><b>UPI ID</b></label>
+        <input type="text" formControlName="upiId">
+      </div>
+      <div *ngIf="paymentForm.get('upiId')?.invalid && paymentForm.get('upiId')?.touched" class="text-danger">
+        <ng-container *ngIf="paymentForm.controls['upiId'].errors?.['required']">
+          UPIID is required
+        </ng-container>
+        <!-- <ng-container *ngIf="paymentForm.controls['upiId'].errors?.['pattern']">
+          Please enter valid UPIID
+        </ng-container> -->
+      </div>
+    </div>
+
+    <label for="promoCode"><b>Promo Code</b></label>
+    <input type="text" id="promoCode" formControlName="promoCode" placeholder="Enter your promoCode" (blur)="applyPromoCode()">
+
+    <button type="submit" [disabled]="paymentForm.invalid">Pay Now</button>
+  </form>
+</div>
+</div>

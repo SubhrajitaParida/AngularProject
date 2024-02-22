@@ -7,7 +7,7 @@
   margin-top: 15px;
 }
 form{
-  height: 78vh;
+  /* height: 78vh; */
   width: 40%;
   border: 1.5px solid rgba(34, 142, 210, 0.797);
   box-shadow: 5px 5px 5px;
@@ -27,6 +27,7 @@ button{
   height: 45px;
   width: 100px;
   margin-left: 80px;
+margin-bottom: 20px;
 }
 .add{
   font-size: 27px;

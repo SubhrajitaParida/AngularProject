@@ -34,8 +34,11 @@ this.data.getProductsById(productsId).subscribe(data=>this.productDetails=data);
 }
 addToCart(product:Product){
   product.quantityProduct=1;
+
   this.productList.push(product);
   console.log(this.productList); 
   this.cartService.addToCart(this.productList);  
  }
+
+ 
 }

@@ -1,4 +1,6 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+
 <body>
     <!-- <nav>
        
@@ -20,16 +22,20 @@
             </div>
 
         
-    </nav> -->
-              <app-main-nav></app-main-nav>
-    <div class="container">
-        <div>
-            <section>
-                <h1 id="header">CART</h1>
-            <section class="innersec"  *ngIf="dialogueBox;else endblock ">
+    </nav>  -->
+    <div class="nav">
+        <app-main-nav></app-main-nav>
+        <h1 id="header">Cart</h1>
+    </div>
+    <div id="container" *ngIf="dialogueBox;else endblock ">
+        <div>  
+            <section class="innersec"  >
                     <div>
                         <div>
-                            <h1>Product Name</h1>
+                            <h1> Image</h1>
+                        </div>
+                        <div>
+                            <h1> Name</h1>
                         </div>    
                         <div>
                             <h1>Price</h1>
@@ -46,12 +52,12 @@
                                 
                     </div>
             </section>
-            </section>
+            
         
             <section id="values" *ngFor="let product of productsList; let i = index"> 
-                <!-- <div id="image">
-                    <img src="" alt="">
-                </div> -->
+                <div id="image">
+                    <img   [routerLink]="['/medicine/details', product.productId]" [src]="[product.image]" width="100px" height="100px" alt="">
+                </div> 
                 <div id="name">
                     <span>{{product.name}}</span>
                 </div>
@@ -59,7 +65,7 @@
                     <span>{{product.price}}</span>
                 </div>
                 <div id="Quantity">
-                    <div>             
+                                
                         <select [(ngModel)]="product.quantityProduct" (change)="onSelectChange($event, product)">
                             <span>QTY : </span>
                             <option value="1">1</option>
@@ -68,7 +74,7 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </div>
+                    
                 </div>
                 <div id="func">
                     <span>{{product.price * product.quantityProduct}}</span>
@@ -76,9 +82,12 @@
                 <div id="remove">  
                     <button (click)="removeProduct(product)">Remove</button>
                 </div>
-            </section>  
+            </section>
+            <div class="btn">
+                <button routerLink="/medicine">Continue Shopping</button>
+            </div>  
         </div>
-        <div class="Bill">
+        <div class="Bill" *ngIf="cart.amount>0">
           <div>
             <h1>Order Summary</h1>
           </div>
@@ -102,7 +111,7 @@
    
 
 <ng-template #endblock>
-      <div class="empty">
+      <div id="empty">
         <div>
             <div>
             </div>

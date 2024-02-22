@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background{
+    width: 100vw;
+    height: 100vh;
+    background: url(https://www.cdsupplies.co.za/wp-content/uploads/2023/04/AdobeStock_478260685-scaled.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.main{
+    width: 100vw;
+    height: 100vh
+}
+.navBar{
+    position: absolute;
+/* margin: 0; */
+}
+#container {
+  position: relative;
+  top:150px;
+    width: 600px;
+    margin-left: 80px;
+    /* margin: 0 auto; */
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin-top: 30px; */
+    /* padding-top: 10%; */
+    /* background-color: #007bff; */
+
+}
+
+.centered-address {
+    justify-content: center;
+}
+
+.address {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.address p {
+    margin: 5px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons button , .displayAddress button{
+    margin: 10px 0px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+.buttons button{
+    width: 50%;
+    margin: 0px 135px;
+
+}
+
+.noAddress , .displayAddress{
+    width: 255px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 10px;
+}

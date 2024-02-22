@@ -1,0 +1,30 @@
+<div class="main">
+    <div class="navBar">
+        <app-main-nav></app-main-nav>
+    </div>
+    <div class="background">
+        <div id="container">
+            <div class="address">
+                <div *ngIf="addresses.length === 0" class="noAddress">
+                    <p>No address found</p>
+                    <p>Add address</p>
+                </div>
+                <div *ngIf="addresses.length !== 0" class="centered-address d-flex flex-wrap">
+                    <div *ngFor="let address of addresses" class="displayAddress">
+                        <p style="text-align: center; font-weight: bolder; margin: 10px;"><b>Address</b></p>
+                        <p>{{ address.streetName }}</p>
+                        <p>{{ address.city }}</p>
+                        <p>{{ address.state }}</p>
+                        <p>{{ address.pinCode }}</p>
+                        <button routerLink="/editAddress/{{address.addressId}}">Edit Address</button><br>
+                        <button routerLink="/payment/{{address.addressId}}">Deliver to this address</button>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button routerLink="/addAddress/{{userId}}">Add Address</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div><router-outlet></router-outlet></div> -->
+</div>

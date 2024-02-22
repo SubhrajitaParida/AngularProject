@@ -72,3 +72,9 @@ button {
 a{
   color:  rgb(52, 174, 222);
 }
+
+.custom-snackbar {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+}

@@ -18,7 +18,7 @@
 
                 <div class="form-outline form-white mb-4">
                     <label class="form-label" for="verificationCodeInput"><b>Verification Code</b></label>
-                    <input type="text" placeholder="Enter the verification code" formControlName="verificationCode"/>
+                    <input type="number" placeholder="Enter the verification code" formControlName="verificationCode"/>
                     <div *ngIf="forgotForm.controls['verificationCode'].invalid && forgotForm.controls['verificationCode'].touched" class="text-danger">
                         <ng-container *ngIf="forgotForm.controls['verificationCode'].errors?.['required']">
                             verificationCode is required
@@ -37,7 +37,7 @@
                         </ng-container>
                     </div>
                 </div>
-                <button  type="submit">Reset</button>
+                <button  type="submit" routerLink="/login">Reset</button>
             </form>
         </div>
     </div>

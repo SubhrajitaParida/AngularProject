@@ -18,7 +18,6 @@ import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginserviceComponent } from './loginservice/loginservice/loginservice.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
 import emailjs from 'emailjs-com';
@@ -26,6 +25,18 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './CartModel/cart.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LoginserviceComponent } from './loginservice/loginservice.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { DisplayFeedbacksComponent } from './display-feedbacks/display-feedbacks.component';
+import { AddressComponent } from './address/address.component';
+import { OrderComponent } from './order/order.component';
+import { PaymentComponent } from './payment/payment.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MainServiceService } from './main-service.service';
+import { DataSource } from './UserModel/user.datasource';
 
 @NgModule({
   declarations: [
@@ -47,7 +58,13 @@ import { CartService } from './CartModel/cart.service';
     VerificationCodeComponent,
     SidenavComponent,
     MainNavComponent,
-    CartComponent
+    CartComponent,
+    FeedbackComponent,
+    DisplayFeedbacksComponent,
+    AddressComponent,
+    OrderComponent,
+    PaymentComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -55,11 +72,17 @@ import { CartService } from './CartModel/cart.service';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [
 
-    CartService
+    CartService,
+    MainServiceService,
+    DataSource,
+    DataSource
+      // provideAnimationsAsync()
 
   ],
   bootstrap: [AppComponent],

@@ -29,10 +29,12 @@
 
 <div class="right-inside">
   <div class="products">
-    <div *ngFor="let product of products" class="products-container">
+    <div *ngFor="let product of products; let i=index" class="products-container">
       <a [routerLink]="['/medicine/details', product.productId]">
-          <img src="/assets/dolo-65Single.jpg" alt="">
-        <!-- </div> -->
+          <img [src]="product.image" alt="Image not found">
+          <!-- <img src="https://th.bing.com/th?id=OIP.BL-MnboS4ijnyJ8SEDKcWgHaSF&w=143&h=349&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt=""> -->
+          <!-- <p id="img">{{ product.image }}</p> -->
+
         <div id="name">{{ product.name }}</div>
         <div id="div-price">
           <div id="price">MRP:</div>
@@ -40,7 +42,10 @@
         </div>
       </a>
       <div id="buttons">
-        <button class="btn btn-primary" type="submit" (click)="addToCart(product)">Add to Cart</button>
+        <button class="btn btn-primary" type="submit" (click)="addToCart(product)">
+          {{ isAddedToCart(product) ? 'Added To Cart': 'Add to Cart' }}
+        </button>
+       
       </div>
     </div>
     <div class="details">

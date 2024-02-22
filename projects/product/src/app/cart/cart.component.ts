@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DataSource } from '../CartModel/datastore';
 import { Cart, User } from '../CartModel/cart.model';
 import { Product } from './../Model/product.model';
+import { MainServiceService } from '../main-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,6 @@ export class CartComponent {
   public updateProductList: Product[] = [];
   public cart = new Cart(0,'',new User(),0,0);
   public userBean = new User();
-  public uniqueArray:Product[]=[];
   public dialogueBox:boolean=false;
   public cartId:number=0;
   public customQuantity:number=0;
@@ -25,7 +25,8 @@ export class CartComponent {
   constructor(
     private router: Router,
     private cartService: CartService,
-    private dataSource: DataSource
+    private dataSource: DataSource,
+    private mainService:MainServiceService
   ) {
     this.getCartDetailsBasedOnId();
   }
@@ -37,16 +38,13 @@ export class CartComponent {
   }
 
   getCartDetailsBasedOnId() {
-    this.userBean.userId=55;
+    this.userBean.userId=1;
     this.dataSource.getCartDetailsBasedOnId(this.userBean.userId).subscribe(
       (data) => {
         console.log(data);
         this.cart=data;
-        this.uniqueArray=data.products;
-        this.productsList=this.uniqueArray.filter((product,index,self)=>{
-          return self.findIndex(p=>p.productId===product.productId)===index;
-        });
-
+        this.productsList=data.products;
+        this.mainService.getCartQuantity(this.cart.quantity);
         this.dialogueBox = this.productsList.length > 0;
 
         console.log(this.productsList);
@@ -82,6 +80,7 @@ export class CartComponent {
       (data)=>{
         this.cart.products=data.products;
         this.cart.amount=data.amount;
+        this.mainService.getCartQuantity(this.cart.quantity);
         console.log(this.cart.products);
       },(error)=>{
         console.log(error);       

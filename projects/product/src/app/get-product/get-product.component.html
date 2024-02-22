@@ -3,20 +3,20 @@
       <thead>
         <tr>
           <th>Id</th>
-          <th >Name</th>
+          <th style="width: 300px;">Name</th>
           <th >Price</th>
           <th>Quantity</th>
-          <th>Buttons</th>
+          <th style="width: 300px;">Buttons</th>
         </tr>
       </thead>
        <tbody>
 
         <tr *ngFor="let prod of products">
          <td class="value">{{prod.productId}}</td>
-         <td class="value">{{prod.name}}</td>
+         <td class="value" style="width: 300px;">{{prod.name}}</td>
          <td class="value">{{prod.price}}</td>
          <td class="value">{{prod.quantity}}</td>
-          <td id="buttons">
+          <td id="buttons" style="width: 300px;">
             <button class="btn btn-primary" type="button" [routerLink]="['/admin/edit-product', prod.productId]">edit</button>
 
             <button class="btn btn-danger m-4" type="submit" (click)="deleteProduct(prod.productId)">

@@ -1,0 +1,50 @@
+<div class="background">
+    <div class="container">
+        <div class="row">
+            <h2>Login</h2>
+
+            <form (ngSubmit)="loginData()" [formGroup]="loginForm">
+                <div class="form-white mb-4">
+                    <label class="form-label" for="typeEmailX"
+                        style="font-size:18px; margin: 8px 0px;"><b>Email</b></label>
+                    <input type="email" placeholder="Enter your email" formControlName="email" />
+                    <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched" class="text-danger">
+                        <ng-container *ngIf="loginForm.controls['email'].errors?.['required']">
+                            Email is required
+                        </ng-container>
+                        <ng-container *ngIf="loginForm.controls['email'].errors?.['email']">
+                            Email is not in valid format
+                        </ng-container>
+                    </div>   
+                </div>
+
+                <div class="form-white mb-4">
+                    <label class="form-label" for="typePasswordX"
+                        style="font-size:18px; margin: 8px 0px;"><b>Password</b></label>
+                    <input type="password" placeholder="Enter your password" formControlName="password" />
+                    <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="text-danger">
+                        <ng-container *ngIf="loginForm.controls['password'].errors?.['required']">
+                            Password is required
+                        </ng-container>
+                        <ng-container *ngIf="loginForm.controls['password'].errors?.['minlength']">
+                            Password must contain at least 8 characters
+                        </ng-container>
+                    </div>
+                    
+                </div>
+
+                <a routerLink="/verification">Forgot password?</a><br>
+                <br>
+
+                <button type="submit" [disabled]="loginForm.invalid">Login</button>
+            </form>
+
+            <div>
+                <p class="mb-0" style="text-align: center;">Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div><router-outlet></router-outlet></div>
+
+

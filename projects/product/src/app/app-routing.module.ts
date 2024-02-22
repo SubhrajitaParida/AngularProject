@@ -11,10 +11,16 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './admin/admin.component';
 import { AboutComponent } from './about/about.component';
-import { LoginserviceComponent } from './loginservice/loginservice/loginservice.component';
 import { ForgotComponent } from './forgot/forgot.component';
 import { VerificationCodeComponent } from './verification-code/verification-code.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginserviceComponent } from './loginservice/loginservice.component';
+import { OrderComponent } from './order/order.component';
+import { DisplayFeedbacksComponent } from './display-feedbacks/display-feedbacks.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AddressComponent } from './address/address.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 const routes: Routes = [
@@ -50,7 +56,28 @@ const routes: Routes = [
   {
     path: 'cart', component: CartComponent
   },
-  
+  {
+    path: 'register', component: RegistrationComponent
+  },
+  {
+    path:"order", component:OrderComponent
+  },
+  {
+    path:"allFeedbacks", component:DisplayFeedbacksComponent
+  },
+  {
+    path:"feedback/:userId/:orderId", component:FeedbackComponent
+  },
+  {
+    path:"payment/:addressId", component:PaymentComponent
+  },
+  {
+    path:"addAddress/:userId" , component:AddressComponent
+  },
+  {
+    path:"editAddress/:addressId" , component:AddressComponent
+  },
+
   {
     path: 'medicine', component: NavbarComponent,
     children: [

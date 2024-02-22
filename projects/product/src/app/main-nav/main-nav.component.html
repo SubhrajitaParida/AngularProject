@@ -1,26 +1,37 @@
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <nav>
     <div class="main">
         <div class="nav">
             <div class="product-header">
                 <div class="product-logo">
-                    <img src="\assets\logoCopy.png" alt="image">
-                    <div class="logo-name"> MediCo</div>
+                    <img src="assets/MedicoImage-removebg-preview.png" alt="image">
+
                 </div>
                 <div class="product-top-nav">
                     <div class="input">
                         <app-search-bar></app-search-bar>
                     </div>
                     <div class="nav-content">
-                        <a href="" routerLink="/home" routerLinkActive="active"><fa-icon [icon]="faHome" class="icons"></fa-icon>Home</a>
-                       <a href="" routerLink="/login"> <fa-icon [icon]="faUser" class="icons"></fa-icon>Login</a>
-                        <a href="" routerLink="/about"><fa-icon [icon]="faInfoCircle" class="icons"></fa-icon> About Us</a>
-                        <a href=""><fa-icon [icon]="faUserPlus" class="icons"></fa-icon> Sign up</a>
-                        <a href="" routerLink="/cart"><fa-icon [icon]="faShoppingCart" class="icons" ></fa-icon> Cart</a>
+                        <a href="" routerLink="/home" routerLinkActive="active"><fa-icon [icon]="faHome"
+                                class="icons"></fa-icon>Home</a>
+                        <a href="" routerLink="/login"> <fa-icon [icon]="faUser" class="icons"></fa-icon>{{isLoggedIn ?
+                            'Varsha' : 'Login'}}</a>
+                        <a href="" routerLink="/about"><fa-icon [icon]="faInfoCircle" class="icons"></fa-icon> About
+                            Us</a>
+                        <a href="" routerLink="/register"><fa-icon [icon]="faUserPlus" class="icons"></fa-icon>Sign
+                            up</a>
+                        <div id="cart" routerLink="/cart">
+                            <i><i class='bx bxs-cart-add'></i></i>
+                            <span>Cart</span>
+                        </div>
+                        <div id="quan">
+                            <span>{{amount}}</span>
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
     </div>
 </nav>
-
-
