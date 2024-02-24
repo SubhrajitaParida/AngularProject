@@ -13,7 +13,7 @@
           </div>
             <dt id="desc">Description:</dt>
             <dd id="desc-value">{{ productDetails.description }}</dd>
-            <dd><button class="btn btn-primary" type="submit" (click)="addToCart(productDetails)">Add To Cart</button></dd>
+            <dd><button class="btn btn-primary" type="submit" (click)="addToCart(productDetails)">{{productDetails.status}}</button></dd>
           </dl>
         </div>
       </div>

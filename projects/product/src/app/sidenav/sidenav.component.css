@@ -10,11 +10,11 @@
     font-family: "Lato", sans-serif;
     font-weight: 700;
     font-style: normal;
-    padding-top: 70px;
+    padding-top: 90px;
 }
 
 .fluid > .fluid-left {
-    width: 20%;
+    width: 18.5%;
     /* background-color: rgba(33, 143, 211, 0.671); */
     background-image: linear-gradient(rgba(34, 142, 210, 0.797) ,rgb(35, 185, 185) );
     margin: 30px 20px 0px 20px;
@@ -33,7 +33,7 @@
 }
 
 /* It is for the scrollbar for both left and right sections */
-.fluid > .fluid-left, .fluid > .fluid-right {
+ .fluid > .fluid-right {
     max-height: calc(100vh - 60px); 
 }
 
@@ -43,7 +43,7 @@
 }
 
 .fluid>.fluid-left>#left{
-    height: 100vh;
+    /* height: 100vh; */
     color:rgb(57, 53, 53);
     
 }
@@ -75,5 +75,7 @@ z-index: 1;
 #AddProducts{
     margin-bottom: 40px;
 }
-
+.icons{
+    margin-right: 10px;
+}
 

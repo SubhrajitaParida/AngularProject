@@ -7,7 +7,7 @@
 
 .background{
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   background: url(https://www.cdsupplies.co.za/wp-content/uploads/2023/04/AdobeStock_478260685-scaled.jpeg);
   background-repeat: no-repeat;
   background-position: center;
@@ -37,7 +37,7 @@
 input{
   width: 100%;
   margin-bottom: 10px;
-  padding: 8px;
+  padding: 5px;
   border: 1px solid grey;
   border-radius: 10px;
 }
@@ -47,7 +47,7 @@ label{
 
 .heading > p {
   margin: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
   font-size: 30px;
 }

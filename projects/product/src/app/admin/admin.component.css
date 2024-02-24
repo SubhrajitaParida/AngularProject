@@ -80,46 +80,33 @@
     justify-content: space-between;
     
 }
+
 .product-logo{
     width: 20%;
     letter-spacing: 1px;
     color: aliceblue;
-   
-    display: flex;
-   
-}
-.logo-name{
-  
-    font-size: 30px;
-    position: absolute;
-    left: 110px;
-    top: 25px;
-
-}
-img{
-  width: 270px;
-  height: 102px;
-  padding-right: 100px;
-  padding-bottom: 20px;
  
 }
 
-
+img{
+    width: 85%;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
 .product-top-nav{
     text-align: center;
     width: 80%;
     padding-top:20px;
-    padding-right: 10px;
-   
+    /* padding-right: 10px; */
+    padding-left: 280px;
     display: flex;
    
 }
 
-
-
 .nav-content>a{
     text-decoration: none;
-    padding-left:95px;
+    padding-left:85px;
+    
     font-size: 15.7px;
     font-stretch: normal;
     font-style: normal;

@@ -6,19 +6,21 @@
 
 .background{
     width: 100vw;
-    height: 100vh;
-    background: url(https://www.cdsupplies.co.za/wp-content/uploads/2023/04/AdobeStock_478260685-scaled.jpeg);
+    /* height: 100vh; */
+    background-image: url(https://www.cdsupplies.co.za/wp-content/uploads/2023/04/AdobeStock_478260685-scaled.jpeg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    z-index: -1;
 }
 .main{
     width: 100vw;
-    height: 100vh
+    /* height: 100vh */
 }
 .navBar{
     position: absolute;
+    z-index: 1;
 /* margin: 0; */
 }
 #container {
@@ -31,6 +33,7 @@
     border: 1px solid grey;
     border-radius: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    z-index: 0;
     /* margin-top: 30px; */
     /* padding-top: 10%; */
     /* background-color: #007bff; */

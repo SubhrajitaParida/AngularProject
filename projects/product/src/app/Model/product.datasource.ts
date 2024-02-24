@@ -31,4 +31,9 @@ export class DataSource{
           getCategories(): Observable<CategoryEntity[]> {
             return this.http.get<CategoryEntity[]>(`http://localhost:8081/medicine/categoryController/getAll`);
           }
+
+          updateProduct(product: Product): Observable<any> {
+            const url = `http://localhost:8081/medicine/productController/update/${product.productId}`;
+            return this.http.put(url, product);
+          }
 }

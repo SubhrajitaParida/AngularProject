@@ -32,7 +32,7 @@
 
 img {
     height: 200px;
-    width: 100px;
+    width: 125px;
     margin: 0 auto; /* Center the image horizontally */
     display: block; /* Ensure it behaves like a block element */
 }

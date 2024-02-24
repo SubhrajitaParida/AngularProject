@@ -25,7 +25,7 @@
     </nav>  -->
     <div class="nav">
         <app-main-nav></app-main-nav>
-        <h1 id="header">Cart</h1>
+        <h1 id="header">My Cart</h1>
     </div>
     <div id="container" *ngIf="dialogueBox;else endblock ">
         <div>  
@@ -51,7 +51,7 @@
                         </div> 
                                 
                     </div>
-            </section>
+                </section>
             
         
             <section id="values" *ngFor="let product of productsList; let i = index"> 
@@ -62,7 +62,7 @@
                     <span>{{product.name}}</span>
                 </div>
                 <div id="price">
-                    <span>{{product.price}}</span>
+                    <span class="bi bi-currency-rupee">{{product.price}}</span>
                 </div>
                 <div id="Quantity">
                                 
@@ -72,7 +72,7 @@
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value="5">Max 5</option>
                         </select>
                     
                 </div>
@@ -80,11 +80,14 @@
                     <span>{{product.price * product.quantityProduct}}</span>
                 </div>
                 <div id="remove">  
-                    <button (click)="removeProduct(product)">Remove</button>
+                    <!-- <button (click)="removeProduct(product)">Remove</button> -->
+                        <a (click)="removeProduct(product)" style="color: red; font-size: 20px;">
+                        <i class="fas fa-trash-alt ml-2"></i>
+                      </a>
                 </div>
             </section>
             <div class="btn">
-                <button routerLink="/medicine">Continue Shopping</button>
+                <button routerLink="/medicine" class="btn btn-primary">Add More Products</button>
             </div>  
         </div>
         <div class="Bill" *ngIf="cart.amount>0">
@@ -94,16 +97,16 @@
           <div></div>
           <div id="items">
             <span>Items  {{cart.quantity}}</span>
-            <span>{{cart.amount}}</span>
+            <span class="bi bi-currency-rupee">{{cart.amount}}</span>
           </div>
           <div></div>
           <h1>Free Shipping</h1>
           <div>     
             <h1>Total Cost</h1>
-            <h1>{{cart.amount}}</h1>
+            <h1 class="bi bi-currency-rupee">{{cart.amount}}</h1>
           </div>
          
-        <button id="btn">CHECKOUT</button>
+        <button id="btn" class="btn btn-primary" routerLink="/order/{{cart.user.userId}}">Checkout</button>
        
         </div>     
     </div>

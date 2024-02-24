@@ -23,6 +23,9 @@ body{
 
 .innersec{
     width: 82%;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     /* border: 2px solid black; */
 } 
 
@@ -64,6 +67,11 @@ body{
     /* padding-left: 20px; */
     /* border-bottom: 1px solid black; */
     margin: 10px 0px;
+    /* max-height: calc(100vh - 40px);  */
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
 }
 #values>div{
     /* border: 2px solid rgb(217, 14, 14); */
@@ -81,7 +89,7 @@ body{
 }
 
 
-#remove button ,#Buy button{
+/* #remove button ,#Buy button{
     width: 100px;
     height: 40px;
     background-color: rgb(244, 12, 12);
@@ -97,7 +105,7 @@ body{
 #remove button:hover{
     transform: scale(1.1);
     transition: 1s;
-}
+} */
 
 #header:hover{
     text-decoration: underline;
@@ -143,7 +151,7 @@ select {
     margin-bottom: 30px;
 
 }
-#empty>div button,.btn button{
+#empty>div button{
     
     width: 400px;
     height: 60px;
@@ -162,11 +170,16 @@ select {
     justify-content: center;
     align-items: center;
     margin: 20px;
+    border-style: none;
 }
 .btn button{
-    width: 200px;
-    height: 40px;
-    margin: auto;
+    width: 250px;
+    height: 50px;
+    border-style: none;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 15px;
+   
 }
 #empty>div div{ 
     width: 220px;
@@ -198,29 +211,32 @@ select {
     border-style: ridge;
 
 }
-.nav{
-    z-index: 1;
-}
 #container{
     /* border: 2px solid black; */
     display: flex;
     /* justify-content: space-between;   */
     align-items: flex-start;
-    position:absolute;
     padding: 0px 20px;
-    z-index: 0;
+  
    
 }
+#container:first-child(1){
+    overflow: scroll; 
+}
+
 
 .Bill{
-    width: 36%;
+    width: 30%;
     padding: 15px;
     background-color: rgba(235, 233, 233, 0.52);
     
     position: fixed;
+    margin-right: 40px;
     right: 0px;
     /* border: 5px solid red; */
-    
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .Bill h1{
@@ -262,11 +278,11 @@ select {
 
 #btn{
     width: 250px;
-    height: 40px;
-    background-color: rgb(128, 0, 128);
-    color: white;
+    height: 50px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
+    display: block;
     border-style: none;
     margin:20px auto ;
+    border-radius: 10px;
 }

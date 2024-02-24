@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataSourceService } from '../data-source.service';
 import { log } from 'console';
 import { Product } from '../Model/product.model';
 import { CartService } from '../CartModel/cart.service';
-import { MainServiceService } from '../main-service.service';
+import { AuthService } from '../AuthService.service (1)';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -19,11 +20,12 @@ public categoryName: string | null = "";
   public products: any[] = [];
   searchTerm: string | null = '';
   public productList:Product[]=[];
-  
-addedToCartProducts: any[] = [];
+  public isLoggedIn:boolean=false;
 
 
-  constructor(private ref: ActivatedRoute, private dataSource: DataSourceService, private cartService:CartService) { }
+  constructor(private ref: ActivatedRoute, private dataSource: DataSourceService,
+     private cartService:CartService,private authservice:AuthService,
+      private snackBar: MatSnackBar, private router:Router ) { }
 
   ngOnInit(): void {
     this.ref.paramMap.subscribe(params => {
@@ -54,22 +56,37 @@ addedToCartProducts: any[] = [];
   }
 
   getAllProducts() {
-    this.get();
+    // this.get();
     this.dataSource.getAllProducts().subscribe(data => {
       this.products = data;
     });
   }
+
+  private showSnackBar(message: string) {
+    const config = new MatSnackBarConfig();
+    config.panelClass = ['custom-snackbar'];
+    config.duration = 2000;
+    config.verticalPosition = 'top';
+    this.snackBar.open(message, 'Close', config);
+  }
+
   addToCart(product:Product){
+   
+    this.isLoggedIn=this.authservice.isLogged()
+    if(this.isLoggedIn==false){
+      this.showSnackBar("Please Signup to add products to your cart")
+      this.router.navigate(['/medicine'])
+    }
+
+   else{
     product.quantityProduct=1;
-    this.addedToCartProducts.push(product);
+    product.status="Added To Cart";
     this.productList.push(product);
     console.log(this.productList); 
-    this.cartService.addToCart(this.productList);  
+    this.cartService.addToCart(this.productList); 
+   }
+     
    }
 
-   isAddedToCart(product: any): boolean {
-    // Check if the product is in the addedToCartProducts array
-    return this.addedToCartProducts.includes(product);
-  }
 
 }

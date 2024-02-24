@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor() { }
-
+  public cartId:any=0
   public isLoggedIn:boolean=false;
 
   isLogged(){
@@ -26,5 +26,13 @@ export class AuthService {
   logout() {
     this.isLoggedIn=false
     localStorage.removeItem('userData');
+  }
+
+  setCartId(cartId:any){
+    this.cartId=cartId;
+  }
+
+  getcartId(){
+    return this.cartId;
   }
 }

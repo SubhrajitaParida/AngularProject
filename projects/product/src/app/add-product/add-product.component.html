@@ -1,5 +1,5 @@
 <div class="container">
-<form #frmRegister="ngForm" (submit)="InsertProduct(frmRegister)">
+<form #frmRegister="ngForm">
   <div class="add">
     Add Products
   </div>
@@ -30,7 +30,7 @@
     </select>
   </div>
   <div class="buttons">
-  <button type="submit" class="btn btn-primary" routerLink="GetProduct">Save</button>
+  <button type="submit" class="btn btn-primary" (click)="InsertProduct()">Save</button>
 </div>
 </form>
 </div>

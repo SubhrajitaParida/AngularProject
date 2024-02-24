@@ -1,0 +1,42 @@
+.medical-tips {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    height: 100vh; 
+  /* overflow-y: auto;  */
+}
+  
+  .medical-tips h2 {
+    text-align: center;
+    margin-bottom: 37px;
+  }
+  
+  .medical-tips ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+  }
+  
+  .medical-tips li {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #666;
+    text-align: justify;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .medical-tips {
+      padding: 15px;
+    }
+    
+    .medical-tips h2 {
+      font-size: 20px;
+    }
+    
+    .medical-tips li {
+      font-size: 16px;
+    }
+  }
+  

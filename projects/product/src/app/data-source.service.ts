@@ -6,6 +6,7 @@ import { PasswordUpdateRequest } from './Model/PasswordUpdateRequest.model';
 import { Feedback } from './Model/Feedback.model';
 import { Address } from './Model/Address.model';
 import { Order } from './Model/Order.model';
+import { Cart } from './CartModel/cart.model';
 
 @Injectable({
   providedIn: 'root'
@@ -99,4 +100,10 @@ export class DataSourceService {
     // alert("service updatePassword "+JSON.stringify(passwordupdate))
     return this.http.put<any>(`http://localhost:8084/medicine/users/updatepassword`,passwordupdate );
   }
+
+  updateCartStatus(cart:Cart):Observable<Cart>{
+    alert(JSON.stringify(cart))
+    return this.http.put<Cart>(`http://localhost:8081/medicine/cart/updateStatus`,cart );
+  }
+
 }

@@ -36,6 +36,7 @@ export class ForgotComponent {
   updatePassword(){
     this.service.updatePassword(this.passwordUpdate).subscribe((data)=>{
       this.showSnackBar("Password updated successfully");
+      this.router.navigate(['/login'])
     },(error)=>{
       this.showSnackBar("Password not updated. Try again")
     }
@@ -44,7 +45,8 @@ export class ForgotComponent {
   }
 
   resetPassword() {
-    console.log(JSON.stringify(this.forgotForm.value));
+    // console.log(JSON.stringify(this.forgotForm.value));
+    alert("hello")
     if (this.forgotForm.value.email!==null && this.forgotForm.value.email!==undefined && 
       this.forgotForm.value.password !==null && this.forgotForm.value.password!==undefined && 
       this.forgotForm.value.verificationCode!==null && this.forgotForm.value.verificationCode) {

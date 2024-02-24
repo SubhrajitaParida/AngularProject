@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataSourceService } from '../data-source.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Address } from '../Model/Address.model';
+import { AuthService } from '../AuthService.service (1)';
 
 
 @Component({
@@ -40,6 +41,7 @@ export class AddressComponent implements OnInit{
   ngOnInit(): void {
     this.addressId = this.route.snapshot.paramMap.get("addressId");
     this.userId = this.route.snapshot.paramMap.get("userId");
+    // alert(this.userId)
     this.isEditMode = !!this.addressId; 
     // alert(this.isEditMode);
     if(this.isEditMode){
@@ -54,7 +56,8 @@ export class AddressComponent implements OnInit{
       const id:number = parseInt(this.addressId,10);
       this.address.addressId=id;
     }
-    if(this.userId!==null){
+    // alert(this.userId)
+    if(this.userId!==null && this.userId!=0){
       const id:number = parseInt(this.userId,10);
       this.address.userId=id;
     }
@@ -77,23 +80,23 @@ export class AddressComponent implements OnInit{
 
   saveAddress(){
     this.validAddress();
-    // console.log("before save : " + JSON.stringify(this.address))
+    console.log("before save : " + JSON.stringify(this.address))
     if(this.address.userId!=0 && this.address.streetName!="" && this.address.city!="" && this.address.pinCode!=0 && this.address.state!=""){
       this.service.saveAddress(this.address).subscribe(
         (data: any) => {
           // alert(JSON.stringify(data))
           this.showSnackBar("Address saved successfully")
-          this.router.navigate(['/order']);
+          this.router.navigate([`/order/${this.address.userId}`]);
         },
         (error: any) => {
-          // alert("Error occurred: "+ JSON.stringify(error));
+          console.log("Error occurred: "+ JSON.stringify(error));
           this.showSnackBar("Address not saved successfully!!.Please try again")
         }
       )
       
     }
     else{
-      this.showSnackBar("Address not saved successfully!!.Please try again")
+      console.log("Address not saved successfully!!.Please try again")
     }
     
   }
@@ -104,10 +107,11 @@ export class AddressComponent implements OnInit{
     if(this.address.addressId!=0 && this.address.userId!=0 && this.address.streetName!="" && this.address.city!="" && this.address.pinCode!=0 && this.address.state!=""){
       this.service.updateAddress(this.address).subscribe(
         (data: any) => {
-          // this.addressForm.patchValue(this.addressDetails);
-          console.log("after update : " + JSON.stringify(this.address))
-          this.showSnackBar("Address updated successfully!!")
-          this.router.navigate(['/order']);
+          this.addressForm.patchValue(this.addressDetails);
+          // console.log("after update : " + JSON.stringify(this.address))
+          // alert(JSON.stringify(data))
+          this.showSnackBar("Address saved successfully")
+          this.router.navigate([`/order/${this.address.userId}`]);
         },
         (error: any) => {
           console.log("Error occurred: "+ JSON.stringify(error));

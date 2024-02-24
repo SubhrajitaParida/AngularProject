@@ -1,33 +1,19 @@
-.container-fluid{
+/* .container-fluid{
     margin-top: 30px;
 }
-/* 
-.add{
-    text-decoration: none;
-    color: white;
-    margin-right: 20px;
-  } */
+
   .table{
-    /* border: 2px solid black; */
     margin-left: 20px;
     width: 90%;
     height: auto;
-    /* text-align: center; */
   }
   tr>td{
-    /* display: block;
-    margin-top: 30px; */
     text-align: center;
-    /* border: 1px solid; */
+    border: 1px solid;
     width: 100px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center;
-    align-items: center; */
+  
   }
-  /* #buttons{
-   padding-bottom: 40px;
-  } */
+  
 
   .btn-delete{
     text-decoration: none;
@@ -45,4 +31,4 @@
     width: 100px;
   }
 
-  
+   */

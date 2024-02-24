@@ -1,4 +1,3 @@
-
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <nav>
     <div class="main">
@@ -13,14 +12,12 @@
                         <app-search-bar></app-search-bar>
                     </div>
                     <div class="nav-content">
-                        <a href="" routerLink="/home" routerLinkActive="active"><fa-icon [icon]="faHome"
+                        <a href="" routerLink="/medicine" routerLinkActive="active"><fa-icon [icon]="faHome"
                                 class="icons"></fa-icon>Home</a>
-                        <a href="" routerLink="/login"> <fa-icon [icon]="faUser" class="icons"></fa-icon>{{isLoggedIn ?
-                            'Varsha' : 'Login'}}</a>
+                        <a href="" routerLink="/login"> <fa-icon [icon]="faUser" class="icons"></fa-icon>{{isLoggedIn ? user.userName : 'Login'}}</a>
                         <a href="" routerLink="/about"><fa-icon [icon]="faInfoCircle" class="icons"></fa-icon> About
                             Us</a>
-                        <a href="" routerLink="/register"><fa-icon [icon]="faUserPlus" class="icons"></fa-icon>Sign
-                            up</a>
+                        
                         <div id="cart" routerLink="/cart">
                             <i><i class='bx bxs-cart-add'></i></i>
                             <span>Cart</span>
@@ -28,8 +25,13 @@
                         <div id="quan">
                             <span>{{amount}}</span>
                         </div>
+                        <a href="" routerLink="/register" *ngIf="!isLoggedIn"><fa-icon [icon]="faUserPlus"
+                            class="icons"></fa-icon>Sign
+                        up</a>
+                         <a href="" routerLink="/medicine" *ngIf="isLoggedIn" (click)="logout()"><fa-icon 
+                            class="icons"></fa-icon>Signout</a>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

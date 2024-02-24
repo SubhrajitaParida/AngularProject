@@ -21,6 +21,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { PaymentComponent } from './payment/payment.component';
 import { AddressComponent } from './address/address.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { TipsComponent } from './tips/tips.component';
+import { DoyouknowComponent } from './doyouknow/doyouknow.component';
+import { WellnessProductsComponent } from './wellness-products/wellness-products.component';
 
 
 const routes: Routes = [
@@ -60,7 +63,7 @@ const routes: Routes = [
     path: 'register', component: RegistrationComponent
   },
   {
-    path:"order", component:OrderComponent
+    path:"order/:userId", component:OrderComponent
   },
   {
     path:"allFeedbacks", component:DisplayFeedbacksComponent
@@ -69,7 +72,7 @@ const routes: Routes = [
     path:"feedback/:userId/:orderId", component:FeedbackComponent
   },
   {
-    path:"payment/:addressId", component:PaymentComponent
+    path:"payment/:addressId/:userId", component:PaymentComponent
   },
   {
     path:"addAddress/:userId" , component:AddressComponent
@@ -77,7 +80,15 @@ const routes: Routes = [
   {
     path:"editAddress/:addressId" , component:AddressComponent
   },
-
+  {
+    path:"tips" , component:TipsComponent
+  },
+  {
+    path:"doYouKnow" , component:DoyouknowComponent
+  },
+  {
+    path:"wellness" , component:WellnessProductsComponent
+  },
   {
     path: 'medicine', component: NavbarComponent,
     children: [

@@ -4,7 +4,6 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { BodyComponent } from './body/body.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -35,14 +34,16 @@ import { PaymentComponent } from './payment/payment.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MainServiceService } from './main-service.service';
 import { DataSource } from './UserModel/user.datasource';
+import { TipsComponent } from './tips/tips.component';
+import { WellnessProductsComponent } from './wellness-products/wellness-products.component';
+import { DoyouknowComponent } from './doyouknow/doyouknow.component';
+import { MainServiceService } from './main-service.service ';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    BodyComponent,
     CategoryComponent,
     ProductComponent,
     ProductDetailsComponent,
@@ -64,7 +65,10 @@ import { DataSource } from './UserModel/user.datasource';
     AddressComponent,
     OrderComponent,
     PaymentComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    TipsComponent,
+    WellnessProductsComponent,
+    DoyouknowComponent
   ],
   imports: [
     BrowserModule,

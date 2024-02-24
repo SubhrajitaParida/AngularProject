@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import { DataSource } from '../CartModel/datastore';
 import { Cart, User } from '../CartModel/cart.model';
 import { Product } from './../Model/product.model';
-import { MainServiceService } from '../main-service.service';
+import { CookieService } from 'ngx-cookie-service';
+import { MainServiceService } from '../main-service.service ';
+import { AuthService } from '../AuthService.service (1)';
 
 @Component({
   selector: 'app-cart',
@@ -16,18 +18,22 @@ export class CartComponent {
   public productsList: Product[] = [];
   public updateProductList: Product[] = [];
   public cart = new Cart(0,'',new User(),0,0);
-  public userBean = new User();
   public dialogueBox:boolean=false;
   public cartId:number=0;
-  public customQuantity:number=0;
-
+  public userDetails: any;
+  public userId?: number;
+  
 
   constructor(
     private router: Router,
     private cartService: CartService,
     private dataSource: DataSource,
-    private mainService:MainServiceService
+    private mainService:MainServiceService,
+    private cookieService: CookieService,
+    private authService:AuthService
   ) {
+    // this.getUserDetails() 
+    this.userId=this.authService.getUser().userId;
     this.getCartDetailsBasedOnId();
   }
 
@@ -38,22 +44,25 @@ export class CartComponent {
   }
 
   getCartDetailsBasedOnId() {
-    this.userBean.userId=1;
-    this.dataSource.getCartDetailsBasedOnId(this.userBean.userId).subscribe(
+    if(this.userId!=undefined){
+    this.dataSource.getCartDetailsBasedOnId(this.userId).subscribe(
       (data) => {
         console.log(data);
         this.cart=data;
-        this.productsList=data.products;
-        this.mainService.getCartQuantity(this.cart.quantity);
-        this.dialogueBox = this.productsList.length > 0;
-
-        console.log(this.productsList);
+        if(this.cart.status=="Active"){
+          this.productsList=data.products;
+          this.mainService.getCartQuantity(this.cart.quantity);
+          this.dialogueBox = this.productsList.length > 0;
+          console.log(this.productsList);
+        }
+        
       },
       (error) => {
-        console.error('error no data found');
+        console.error('Error no data found');
         this.dialogueBox=false;
       }
     );
+    }
   }
 
 
@@ -62,7 +71,6 @@ export class CartComponent {
   
     this.dataSource.deleteBasedOnId(this.cart.cartId,product.productId).subscribe(
       (data)=>{
-        console.log("DELETED PRODUCT",data.products);    
         this.getCartDetailsBasedOnId();    
       },
       (error)=>{
@@ -87,5 +95,16 @@ export class CartComponent {
       })
     console.log(productUpdate);   
   }
+
+  // getUserDetails() {
+  //   // alert("cart Service");
+  //     const userDetailsString = this.cookieService.get('userDetails');
+  //     if (userDetailsString) {
+  //     this.userDetails = JSON.parse(userDetailsString);
+  //     this.userId=this.userDetails.userId;
+  //     console.log(this.userId);
+      
+  // }
+// }
 }
 

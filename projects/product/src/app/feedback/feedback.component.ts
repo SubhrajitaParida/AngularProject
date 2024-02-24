@@ -24,7 +24,7 @@ export class FeedbackComponent implements OnInit{
   public feedbacks:string="";
   public order:Order=new Order(0,"","",new Address(0,"","","",0,0,""),0,new Payment(0,"",0,"",""));
   public feedback:Feedback=new Feedback(0,0,this.order,"",0,"");
-  constructor(private fb: FormBuilder, private service:DataSourceService , private route:ActivatedRoute,private snackBar:MatSnackBar) {}
+  constructor(private fb: FormBuilder, private service:DataSourceService , private route:ActivatedRoute,private snackBar:MatSnackBar,private router:Router) {}
 
   ngOnInit(): void {
     const userId:any = this.route.snapshot.paramMap.get("userId");
@@ -82,6 +82,7 @@ export class FeedbackComponent implements OnInit{
         (data: any) => {
           // console.log(JSON.stringify(data))
           this.showSnackBar("Feedback saved successfully")
+          this.router.navigate(['/medicine'])
         },
         (error: any) => {
           this.showSnackBar("Feedback not saved successfully!! Please provide details")

@@ -6,12 +6,12 @@
         <form #frmRegister="ngForm" (submit)="sendUserDetails(frmRegister.value)">
             <div class="parent" *ngIf="dialogue">
                 <div>
-                    <span *ngIf="loginSuccessful; else error">{{user.userName | titlecase}} Registration Successful</span>
-                     <button *ngIf="loginSuccessful" routerLink="/login">ok</button>
+                    <span *ngIf="loginSuccessful; else error">{{user.userName | titlecase}} Yours Registration Is Successfull !!!Press Ok To Continue : )</span>
+                     <button id="ifbtn" *ngIf="loginSuccessful" routerLink="/login">ok</button>
 
                     <ng-template #error>
                         <span>{{errorType}}</span>
-                       <button id="btn" routerLink="/register">ok</button>
+                       <button id="btn" (click)="reloadPage()">Try Again</button>
                     </ng-template>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                             <input type="number" [(ngModel)]="user.userMobileNumber" name="userMobileNumber" [required]="true" pattern="[6-9][0-9]{9}" />
                             <span *ngIf="frmRegister.controls['userMobileNumber']?.invalid && (frmRegister.controls['userMobileNumber']?.dirty || frmRegister.controls['userMobileNumber']?.touched)">
                                 <span *ngIf="frmRegister.controls['userMobileNumber']?.errors?.['required']">Mobile number is required.</span>
-                                <span *ngIf="frmRegister.controls['userMobileNumber']?.errors?.['pattern']">Number must be 10 digits.Should not start with 0 </span>
+                                <span *ngIf="frmRegister.controls['userMobileNumber']?.errors?.['pattern']">Should not start with 0,1,2,3,4,5 and must have 10 digits</span>
                             </span> 
                         </div>
                         

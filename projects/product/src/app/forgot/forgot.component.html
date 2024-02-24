@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <h2 >Forgot Password</h2>
-            <form [formGroup]="forgotForm" (ngSubmit)="resetPassword()">
+            <form [formGroup]="forgotForm">
                 <div class="form-outline form-white mb-4">
                     <label class="form-label" for="emailInput"><b>Email</b></label>
                     <input type="email"  placeholder="Enter your email" formControlName="email"/>
@@ -37,7 +37,7 @@
                         </ng-container>
                     </div>
                 </div>
-                <button  type="submit" routerLink="/login">Reset</button>
+                <button  type="submit" (click)="resetPassword()">Reset</button>
             </form>
         </div>
     </div>

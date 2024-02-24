@@ -43,9 +43,8 @@
       </a>
       <div id="buttons">
         <button class="btn btn-primary" type="submit" (click)="addToCart(product)">
-          {{ isAddedToCart(product) ? 'Added To Cart': 'Add to Cart' }}
-        </button>
-       
+         {{product.status}}
+        </button>      
       </div>
     </div>
     <div class="details">

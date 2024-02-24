@@ -17,7 +17,7 @@
                         <p>{{ address.state }}</p>
                         <p>{{ address.pinCode }}</p>
                         <button routerLink="/editAddress/{{address.addressId}}">Edit Address</button><br>
-                        <button routerLink="/payment/{{address.addressId}}">Deliver to this address</button>
+                        <button routerLink="/payment/{{address.addressId}}/{{userId}}">Deliver to this address</button>
                     </div>
                 </div>
             </div>

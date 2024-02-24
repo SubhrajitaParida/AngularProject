@@ -1,0 +1,24 @@
+.do-you-know {
+    text-align: center;
+  }
+  
+  .do-you-know h2 {
+    color: #333;
+    margin-top: 40px;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .do-you-know ul {
+    list-style-type: none;
+    padding-left: 0;
+    
+  }
+  
+  .do-you-know li {
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: justify;
+  }

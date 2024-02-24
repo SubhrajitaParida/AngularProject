@@ -17,6 +17,8 @@ body{
    display: flex;
    justify-content: center;
    align-items: center;
+
+   position: relative;
 }
 
 body>div{
@@ -111,12 +113,13 @@ section>div>div>div{
 section>div>div>div span{
    display: block;
    font-size: 15px;
-   width: 400px;
+   width: 200px;
    height: 30px;
    color: red;
    font-weight: bold;
    border-style: none;
    margin: 0px;
+
   
 }
 
@@ -131,14 +134,26 @@ button{
    /* background-image: linear-gradient(45deg,rgb(0, 0, 0),rgba(0, 252, 236, 0.925),rgba(0, 252, 236, 0.925),black); */
    border-radius: 10px; 
    margin:  18px auto;
-   background-color: rgba(0, 0, 0, 0.362);
-   color: rgb(1, 0, 0);
+   background-color: rgba(1, 6, 11, 0.48);
+   color: rgb(0, 0, 0);
    /* box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.389); */
 
 }
+
+
+button:hover{
+   transform: scale(1.01);
+   letter-spacing: 1px;
+   text-decoration: underline;
+   transition: 1s;
+   text-underline-offset: 3px;
+   background-color: black;
+   color: white;
+   
+}
 .parent{
-   width: 20%;
-   height: 100px;
+   width: 42%;
+   height: 40px;
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -148,32 +163,38 @@ button{
    
 
    border: 1px solid black;
-   border-radius: 20px;
+   border-radius: 10px;
    box-shadow: 0px 2px 5px #bdbdbd;
    padding: 1em 2em;
    margin: .5em 1em;
-   background-color: #f6f6f6;
+   background-color: #000000;
    position:absolute;   
-   top: 100px;
-   left:300px;
+   top: -7px;
+   right: 25rem;
+   color: white;
+  
 }
 
-button:hover{
-   transform: scale(1.01);
-   letter-spacing: 1px;
-   text-decoration: underline;
-   transition: 1s;
-   text-underline-offset: 3px;
-   
-}
+
 
 option{
-   text-align: center;
+   /* text-align: center; */
    font-weight: bolder;
 }
-#btn{
+#btn,#ifbtn{
    background-color: red;
    color: white;
+   font-size: 15px;
+
+   position: absolute;
+   top: 31.2rem;
+   right: 5.8rem;
+}
+
+#ifbtn{
+   background-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   font-size: 18px;
 }
 
 

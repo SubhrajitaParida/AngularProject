@@ -19,8 +19,9 @@ export class PaymentComponent implements OnInit {
     private service: DataSourceService, private snackBar: MatSnackBar) { }
 
   public mode: string | null | undefined = "";
-  public amount: number = 100;
-  public cartId: any = 0;
+  public amount: any = 0;
+  public userId: any = 0;
+  public cartId:any=null;
   public cart: any = null;
   public address: Address = new Address(0, "", "", "", 0, 0, "");
   public payment: Payment = new Payment(0, "", this.amount, "", "");
@@ -28,9 +29,14 @@ export class PaymentComponent implements OnInit {
 
   public status: string = "";
   public statusArray: string[] = ["success", "failure", "success", "success"]
+  public wrongMonth:boolean=false;
+  public wrongexpirydate:boolean=false;
+  public discountApplied:boolean=false;
+  public afterDiscount:number=0;
 
   public paymentForm = this.paymentBuilder.group({
     amount: this.paymentBuilder.control(this.amount, [Validators.required]),
+    afterDiscount:this.paymentBuilder.control(''),
     paymentMode: this.paymentBuilder.control("", [Validators.required]),
     cardNumber: this.paymentBuilder.control(''),
     expiryDate: this.paymentBuilder.control(''),
@@ -49,8 +55,8 @@ export class PaymentComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("addressId");
-    this.cartId = this.route.snapshot.paramMap.get("cartId")
-    if (this.cartId != null) {
+    this.userId = this.route.snapshot.paramMap.get("userId")
+    if (this.userId != null) {
       this.getCartDetails();
     }
     if (id != null) {
@@ -84,23 +90,19 @@ export class PaymentComponent implements OnInit {
   }
 
   validateExpiryDate() {
-    const today = new Date();
-    if (this.paymentForm.value.expiryDate !== null && this.paymentForm.value.expiryDate !== undefined) {
-      const expiryParts = this.paymentForm.value.expiryDate.split('/');
-      const expiryMonth = parseInt(expiryParts[0], 10);
-      const expiryYear = parseInt(expiryParts[1], 10);
-      if (expiryMonth < 1 || expiryMonth > 12) {
-        this.showSnackBar('Invalid expiry month. Please enter a month between 1 and 12.');
-        return;
-      }
-
-      if (expiryYear < today.getFullYear() || (expiryYear === today.getFullYear() && expiryMonth <= (today.getMonth() + 1))) {
-        this.showSnackBar('Invalid expiry date. Please enter a future expiry date.');
-        return;
-      }
+    const expiryDateValue = this.paymentForm.value.expiryDate;
+    if (expiryDateValue) {
+      const [month, year] = expiryDateValue.split('/');
+      const today = new Date();
+      const inputMonth = parseInt(month, 10);
+      const inputYear = parseInt(year, 10);
+  
+      this.wrongMonth = (inputMonth >= 1 && inputMonth <= 12);
+      this.wrongexpirydate = !(inputYear < today.getFullYear()) || (inputYear === today.getFullYear() && inputMonth <= (today.getMonth() + 1));
     }
-
   }
+  
+  
 
 
   addDetails() {
@@ -127,11 +129,14 @@ export class PaymentComponent implements OnInit {
           this.service.saveOrder(this.order).subscribe(
             (data: any) => {
               // alert(JSON.stringify(data))
-              this.showSnackBar("Order places successfully")
-              this.router.navigate([`/feedback/1/${data.orderId}`]);
+              this.showSnackBar("Order placed successfully")
+              this.service.updateCartStatus(this.cart).subscribe((data)=>{
+                this.router.navigate([`/cart`]);
+              });
+              
             },
             (error: any) => {
-              this.showSnackBar("Order not placed successfully!!.Please try again")
+              this.showSnackBar("Something went wrong!!.Please try again")
               // alert("Error occurred : "+ JSON.stringify(error));
             }
           )
@@ -151,11 +156,13 @@ export class PaymentComponent implements OnInit {
 
 
   getCartDetails() {
-    // alert("cartId : " + this.cartId)
-    this.service.getCartDetails(this.cartId).subscribe((data: any[]) => {
+    // alert("payment cartId : " + this.userId)
+    this.service.getCartDetails(this.userId).subscribe((data: any[]) => {
       console.log("Component data " + JSON.stringify(data))
       this.cart = data;
       this.amount = this.cart.amount;
+      // alert(this.amount)
+      this.paymentForm.get('amount')?.setValue(this.amount.toFixed(2));
       this.cartId = this.cart.cartId;
     }), (error: any) => {
       console.log("error occured " + error)
@@ -169,12 +176,14 @@ export class PaymentComponent implements OnInit {
       const promoCodeValue = this.paymentForm.get('promoCode')?.value;
   
       if (promoCodeValue === 'PROMO10') {
+        this.discountApplied=true;
         // Apply a discount of 10% for promo code 'PROMO10'
         let currentAmount: any = this.paymentForm.get('amount')?.value;
-        currentAmount = currentAmount - (currentAmount * 0.2);
-        this.paymentForm.get('amount')?.setValue(currentAmount.toFixed(2));
+        this.afterDiscount = currentAmount - (currentAmount * 0.2);
+        this.paymentForm.get('afterDiscount')?.setValue(this.afterDiscount.toFixed(2));
       }
       else{
+        this.discountApplied=false;
         this.showSnackBar("Invalid promocode")
       }
     }

@@ -4,7 +4,7 @@ import { Product } from "../Model/product.model";
 export class Cart{
   constructor(
     public cartId:number,
-      public cartStatus:string,
+      public status:string,
       public user:User,
       public quantity:number,
       public amount:number,

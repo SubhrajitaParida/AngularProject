@@ -1,0 +1,34 @@
+.container {
+    padding-top: 50px; /* Adjust spacing from the top */
+  }
+  
+  .wellness-products {
+    text-align: center; /* Center align the content */
+  }
+  
+  .wellness-products h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .wellness-products h3 {
+    margin-top: 30px; /* Add spacing between category headings */
+  }
+  
+  .wellness-products ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+  }
+  
+  .wellness-products li {
+    margin-bottom: 20px; /* Add spacing between product items */
+  }
+  
+  .wellness-products img {
+    width: 200px; /* Set a fixed width for product images */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure images are centered horizontally */
+    margin: 0 auto 10px; /* Center-align images and add spacing below */
+  }
+  
