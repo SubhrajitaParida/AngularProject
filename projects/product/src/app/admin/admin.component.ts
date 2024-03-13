@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { faHome, faUser, faInfoCircle, faUserPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../AuthService.service (1)';
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -30,9 +31,5 @@ export class AdminComponent implements OnInit{
     this.isLoggedIn=false;
     this.authService.logout()
   }
-
-
-
-
 
 }

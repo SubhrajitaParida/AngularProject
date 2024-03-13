@@ -284,5 +284,14 @@ select {
     display: block;
     border-style: none;
     margin:20px auto ;
+    margin-top: 50px;
     border-radius: 10px;
+    transition: 2s;
+
+}
+
+#btn:hover,.btn button:hover{
+    letter-spacing: 1px;
+    background-color: black;
+    transition: 2s;
 }

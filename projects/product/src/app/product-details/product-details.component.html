@@ -1,22 +1,22 @@
-
-    <div class="container">
-      <div class="container-inside">
-        <div id="image">
-          <img [src]="productDetails.image" alt="Image not found">
-        </div>
-        <div id="product-details">
-          <dl>
-            <dt id="name">{{ productDetails.name }}</dt>
-            <div class="div-price">
-            <dt id="price">MRP:</dt>
-            <dd id="price-number" class="bi bi-currency-rupee">{{ productDetails.price }}</dd> 
-          </div>
-            <dt id="desc">Description:</dt>
-            <dd id="desc-value">{{ productDetails.description }}</dd>
-            <dd><button class="btn btn-primary" type="submit" (click)="addToCart(productDetails)">{{productDetails.status}}</button></dd>
-          </dl>
-        </div>
-      </div>
+<div class="container">
+  <div class="container-inside">
+    <div id="image">
+      <img [src]="productDetails.image" alt="Image not found">
     </div>
-  
-  
+    <div id="product-details">
+      <dl>
+        <dt id="name">{{ productDetails.name }}</dt>
+        <dd *ngFor="let composition of productDetails.composition" id="compositions">{{ composition.compositionName }}
+        </dd>
+
+        <div class="div-price">
+          <dt id="price">MRP:</dt>
+          <dd id="price-number" class="bi bi-currency-rupee">{{ productDetails.price }}</dd> 
+        </div>
+        <dt id="desc">Description:</dt>
+        <dd id="desc-value">{{ productDetails.description }}</dd>
+        <dd><button class="btn btn-primary" type="submit" (click)="addToCart(productDetails)">{{productDetails.status}}</button></dd>
+      </dl>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,12 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataSourceService } from '../data-source.service';
+
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { AuthService } from '../AuthService.service (1)';
+import { DataSource } from '../Service/user.datasource';
+
+
 
 @Component({
   selector: 'app-loginservice',
@@ -14,7 +17,8 @@ import { AuthService } from '../AuthService.service (1)';
 export class LoginserviceComponent {
 
 
-  constructor(private fb: FormBuilder, private service: DataSourceService, private router: Router, private snackBar: MatSnackBar,
+  constructor(private fb: FormBuilder,
+     private service: DataSource, private router: Router, private snackBar: MatSnackBar,
     private authService:AuthService) { }
 
   public showPassword:boolean=false;

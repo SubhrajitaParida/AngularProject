@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataSourceService } from '../data-source.service';
-import { log } from 'console';
+import { DataSourceService } from '../Service/data-source.service';
 import { Product } from '../Model/product.model';
 import { CartService } from '../CartModel/cart.service';
 import { AuthService } from '../AuthService.service (1)';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { error } from 'console';
 
 @Component({
   selector: 'app-product',
@@ -52,11 +52,18 @@ public categoryName: string | null = "";
   }
 
   send(categoryName: any) {
-    this.dataSource.getProductByCategoryName(categoryName).subscribe(data => this.products = data);
+    this.dataSource.getProductByCategoryName(categoryName)
+    .subscribe((data)=>{
+      this.products=data;
+    },
+      (error)=>{
+        console.log(error);
+        
+      
+    })
   }
 
   getAllProducts() {
-    // this.get();
     this.dataSource.getAllProducts().subscribe(data => {
       this.products = data;
     });

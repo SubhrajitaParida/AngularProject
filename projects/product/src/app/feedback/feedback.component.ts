@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
-import { DataSourceService } from '../data-source.service';
+import { DataSourceService } from '../Service/data-source.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Order } from '../Model/Order.model';

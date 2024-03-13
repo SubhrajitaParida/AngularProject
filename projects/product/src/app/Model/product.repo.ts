@@ -1,15 +1,16 @@
 import { Injectable } from "@angular/core";
 import { Product } from "./product.model";
-import { DataSource } from "./product.datasource";
+import { DataSource } from "../Service/product.datasource";
 import { error } from "console";
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class ProductRepo{
 
   public product:Product[]=[];
 
-  constructor(private dataSource:DataSource) {
+  constructor(private dataSource:DataSource, private router:Router) {
     this.getAllProduct();
   }
   getProductById(productId: number): Observable<Product> {
@@ -38,7 +39,9 @@ export class ProductRepo{
   deleteProduct(productId:number){
     console.log("deleting product with ",productId);
     this.dataSource.deleteProducts(productId).subscribe(
-      ()=>{
+      (data)=>{
+          this.router.navigate(['/admin/GetProduct'])
+          console.log(data)
         console.log("Product deleted succesfully");
       }
     )

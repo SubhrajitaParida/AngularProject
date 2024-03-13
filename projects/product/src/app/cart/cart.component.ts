@@ -32,14 +32,13 @@ export class CartComponent {
     private cookieService: CookieService,
     private authService:AuthService
   ) {
-    // this.getUserDetails() 
+  
     this.userId=this.authService.getUser().userId;
     this.getCartDetailsBasedOnId();
   }
 
   getCartDetails() {
     this.cart = this.cartService.sendCartDetails();
-    console.log(this.cart);
     return this.cart;
   }
 
@@ -47,18 +46,15 @@ export class CartComponent {
     if(this.userId!=undefined){
     this.dataSource.getCartDetailsBasedOnId(this.userId).subscribe(
       (data) => {
-        console.log(data);
         this.cart=data;
         if(this.cart.status=="Active"){
           this.productsList=data.products;
           this.mainService.getCartQuantity(this.cart.quantity);
-          this.dialogueBox = this.productsList.length > 0;
-          console.log(this.productsList);
+          this.dialogueBox = this.productsList.length > 0;          
         }
         
       },
       (error) => {
-        console.error('Error no data found');
         this.dialogueBox=false;
       }
     );
@@ -67,14 +63,14 @@ export class CartComponent {
 
 
   removeProduct(product:Product) {
-  console.log("delete");
+ 
   
     this.dataSource.deleteBasedOnId(this.cart.cartId,product.productId).subscribe(
       (data)=>{
         this.getCartDetailsBasedOnId();    
       },
       (error)=>{
-        console.log("Error");
+        // console.log("Error");
         
       }
     )
@@ -89,22 +85,10 @@ export class CartComponent {
         this.cart.products=data.products;
         this.cart.amount=data.amount;
         this.mainService.getCartQuantity(this.cart.quantity);
-        console.log(this.cart.products);
       },(error)=>{
-        console.log(error);       
+        // console.log(error);       
       })
-    console.log(productUpdate);   
+    
   }
-
-  // getUserDetails() {
-  //   // alert("cart Service");
-  //     const userDetailsString = this.cookieService.get('userDetails');
-  //     if (userDetailsString) {
-  //     this.userDetails = JSON.parse(userDetailsString);
-  //     this.userId=this.userDetails.userId;
-  //     console.log(this.userId);
-      
-  // }
-// }
 }
 

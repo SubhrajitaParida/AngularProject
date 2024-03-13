@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from '../UserModel/user.model';
-import { DataSource } from '../UserModel/user.datasource';
+import { DataSource } from '../Service/user.datasource';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';

@@ -2,6 +2,7 @@
     height: 100vh;
     width: 100%;
     background-color:white;
+    font-family: "Lato", sans-serif;
 }
 .container-inside{
   height: 98vh;
@@ -30,22 +31,35 @@ img{
     /* font-size: 40px; */
     margin-top: 30px;
     margin-bottom: 30px;
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 24px;
     padding: 0;
     /* width: calc(100% - 340px); */
     /* font-family: Lato; */
 }
+#compositions{
+    background: #d9d9d9;
+    height: 29px;
+    line-height: 18px;
+    display: inline-block;
+    border-radius: 35px;
+    padding: 5px 10px;
+    font-size: 14px;
+   
+    color: #83878a;
+    max-width: 78%;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+}
 .div-price{
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 #price{
     margin-top: 3px; 
     font-size: 16px;
-    font-family: "Lato", sans-serif;
-    font-weight: 700;
+    font-weight: 420;
     color: rgba(37, 35, 35, 0.5);
     min-height: 42px;
 }
@@ -59,13 +73,14 @@ img{
     color: #0b1219;
     font-size: 16px;
     font-family: "Lato", sans-serif;
-    font-weight: 700;
+    font-weight: 600;
+    margin-bottom: 15px;
+
 }
 #desc-value{
     margin-bottom: 40px;
-    font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+    font-weight: 400;
+    font-style: normal;
 
 }
 button  {

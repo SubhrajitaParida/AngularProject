@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DataSourceService } from '../data-source.service';
+import { DataSourceService } from '../Service/data-source.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import e from 'express';
 import { Address } from '../Model/Address.model';

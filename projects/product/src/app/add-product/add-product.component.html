@@ -1,36 +1,95 @@
+
 <div class="container">
-<form #frmRegister="ngForm">
-  <div class="add">
-    Add Products
-  </div>
-  <div class="form-group">
-    <label for="name">Product Name:</label>
-    <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required>
-  </div>
-  <div class="form-group">
-    <label for="price">Price:</label>
-    <input type="number" class="form-control" id="price" [(ngModel)]="product.price" name="price" required>
-  </div>
-  <div class="form-group">
-    <label for="quantity">Quantity:</label>
-    <input type="number" class="form-control" id="quantity" [(ngModel)]="product.quantity" name="quantity" required>
-  </div>
-  <div class="form-group">
-    <label for="description">Description:</label>
-    <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description" required>
-  </div>
-  <div class="form-group">
-    <label for="description">Image</label>
-    <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description" required>
-  </div>
-  <div class="form-group">
-    <label for="categoryId">Category:</label>
-    <select class="form-control" id="categoryId" [(ngModel)]="product.category.categoryId" name="categoryId" required>
-      <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
-    </select>
-  </div>
-  <div class="buttons">
-  <button type="submit" class="btn btn-primary" (click)="InsertProduct()">Save</button>
+  <form #frmRegister="ngForm">
+    <div class="add">
+      Add Products
+    </div>
+    <div class="form-group">
+      <label for="name">Product Name:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+        <div *ngIf="name.errors && name.errors['required']">
+          Product Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="product.price" name="price" required #price="ngModel" min="1">
+      <div *ngIf="price.invalid && (price.dirty || price.touched)" class="text-danger">
+        <div *ngIf="price.errors">
+          <div *ngIf="price.errors['required']">
+            Price is required.
+          </div>
+          <div *ngIf="price.value === 0">
+            Price cannot be zero.
+          </div>
+          <div *ngIf="price.errors['min']">
+            Price must be at least 1.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" class="form-control" id="quantity" [(ngModel)]="product.quantity" name="quantity" required #quantity="ngModel" min="1">
+      <div *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)" class="text-danger">
+        <div *ngIf="quantity.errors">
+          <div *ngIf="quantity.errors['required']">
+            Quantity is required.
+          </div>
+          <div *ngIf="quantity.value === 0">
+            Quantity cannot be zero.
+          </div>
+          <div *ngIf="quantity.errors['min']">
+            Quantity must be at least 1.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description" required #description="ngModel">
+      <div *ngIf="description.invalid && (description.dirty || description.touched)" class="text-danger">
+        <div *ngIf="description.errors && description.errors['required']">
+          Description is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input type="text" class="form-control" id="image" [(ngModel)]="product.image" name="image" required #image="ngModel">
+      <div *ngIf="image.invalid && (image.dirty || image.touched)" class="text-danger">
+        <div *ngIf="image.errors && image.errors['required']">
+          Image is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="categoryId">Category:</label>
+      <select class="form-control" id="categoryId" [(ngModel)]="product.category.categoryId" name="categoryId" required #categoryId="ngModel">
+        <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.categoryName }}</option>
+      </select>
+      <div *ngIf="categoryId.invalid && (categoryId.dirty || categoryId.touched)" class="text-danger">
+        <div *ngIf="categoryId.errors && categoryId.errors['required']">
+          Category is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="composition">Composition:</label>
+      <select class="form-control" id="composition" [(ngModel)]="selectedCompositionId" name="compositionId" required #composition="ngModel">
+        <option *ngFor="let composition of compositions" [value]="composition.compositionId">{{ composition.compositionName }}</option>
+      </select>
+      <div *ngIf="composition.invalid && (composition.dirty || composition.touched)" class="text-danger">
+        <div *ngIf="composition.errors && composition.errors['required']">
+          Composition is required.
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button type="submit" class="btn btn-primary" (click)="InsertProduct()">Save</button>
+    </div>
+  </form>
 </div>
-</form>
-</div>
+  

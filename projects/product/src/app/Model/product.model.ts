@@ -1,4 +1,5 @@
-import { CategoryEntity } from "./category.model";
+import { Category } from "./category.model";
+import { Composition } from "./composition.model";
 
 
 export class Product{
@@ -11,7 +12,8 @@ export class Product{
         public quantityProduct:number,
         public image:string,
         public status:String,
-        public  category:CategoryEntity
+        public  category:Category,
+        public composition:Composition[]
     ){}
 }
 

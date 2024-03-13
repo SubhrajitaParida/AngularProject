@@ -36,7 +36,11 @@ margin-bottom: 20px;
   /* text-align: center; */
   padding-left: 35px;
 }
-
+.custom-snackbar {
+  background-color: white;
+  color: black;
+  border-radius: 15px;
+}
 
   
   
