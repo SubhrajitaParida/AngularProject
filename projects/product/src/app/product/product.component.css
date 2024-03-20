@@ -5,6 +5,7 @@
     font-family: LatoSemiBold;
 }
 
+
 .products {
     width: 95%;
     display: flex;
@@ -25,16 +26,17 @@
     justify-content: space-between; /* Ensures button stays at the bottom */
     padding: 10px; /* Adjusted padding for content spacing */
 }
+
+
+
 .products-container>a{
     text-decoration: none;
 
 }
 
 img {
-    height: 200px;
-    width: 125px;
-    margin: 0 auto; /* Center the image horizontally */
-    display: block; /* Ensure it behaves like a block element */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
 }
 
 #name {
@@ -81,6 +83,10 @@ img {
     margin-top: auto; /* Align the button to the bottom */
 }
 
-.btn {
+/* .btn {
     width: 80%;
+} */
+.btn {
+    width: 100%; /* Full width button */
+    max-width: 200px; /* Limit maximum button width */
 }

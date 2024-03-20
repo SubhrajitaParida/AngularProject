@@ -78,7 +78,7 @@
     </div>
     <div class="form-group">
       <label for="composition">Composition:</label>
-      <select class="form-control" id="composition" [(ngModel)]="selectedCompositionId" name="compositionId" required #composition="ngModel">
+      <select class="form-control" id="compositionId" [(ngModel)]="selectedCompositionId" name="compositionId" required #composition="ngModel">
         <option *ngFor="let composition of compositions" [value]="composition.compositionId">{{ composition.compositionName }}</option>
       </select>
       <div *ngIf="composition.invalid && (composition.dirty || composition.touched)" class="text-danger">

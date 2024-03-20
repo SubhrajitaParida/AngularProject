@@ -1,32 +1,6 @@
-<!-- <div class="right-inside">
-
-  <div class="products">
-    <div *ngFor="let product of products" class="products-container">
-      <a routerLink="details/{{product.productId}}">
-        <div id="name">
-          {{product.name}}
-        </div>
-        <div id="price">
-          <span>MRP:</span>
-          <span>{{product.price}}</span>
-        </div>
-      </a>
-      <div id="buttons">
-        <button class="btn btn-primary " type="submit">Add to Cart</button>
-      </div>
-    </div>
-    <div class="details">
-      <section>
-        <router-outlet></router-outlet>
-      </section>
-    </div>
-  </div>
- 
 
 
-</div> -->
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="right-inside">
   <div class="products">
     <div *ngFor="let product of products; let i=index" class="products-container">
